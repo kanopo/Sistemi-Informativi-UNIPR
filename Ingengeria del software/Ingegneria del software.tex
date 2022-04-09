@@ -500,12 +500,58 @@ Ecco delel guidelines:
     \caption{Tamplate per i casi di utilizzo}
 \end{figure}
 
+\section{T8 - Requirements}
+L'analisi dei requisiti permette di raffinare e strutturare i requisiti in 
+modo da renderli più chiari, precisi e formali.
 
 
+\subsection{Analysis classes}
+Il concetto è quello di astrarre le entità del problema.
+
+\subsection{Classes discovering techniques}
+\subsubsection{Noun verb analysis}
+Analisi che sfrutta i contenuti delle specifiche del progetto.
+Necessita di completezza del documento molto alta.
+
+\subsubsection{Use case driven approch}
+Approccio che sfrutta fli scenari degli use cases.
+\subsubsection{Common class patterns}
+Analisi basata sulla teoria della classificazione generica degli oggetti.
+
+Fornisce linee guida, ma non un processo sistematico per ottenere le classi.
 
 
+Introduce errori di mal'interpretazioni.
 
+\subsubsection{CRC cards}
+Sono usate in specifiche sessioni di brainstorming, generalmente si 
+parte dagli use cases e s icreano delle card con:
+\begin{itemize}
+    \item class name
+    \item responsabilities
+    \item collaborators
+\end{itemize}
 
+Non è un metodo sistematico, si usano le CRC cards come validazione.
+
+Gli achievement di questo metodo sono:
+\begin{itemize}
+    \item Verifica la corretteza dello use case
+    \item verifica la correttezza delle associazioni
+    \item verifica la corretteza delle generalizzazioni
+    \item trovare le classi omesse
+    \item scovare opportunità di refactoring
+\end{itemize}
+
+\subsubsection{Mixed approch}
+Migliore:
+\begin{enumerate}
+    \item Le classi iniziali provengono dalla conoscenza del dominio
+    \item si sfrutta come guida il common class pattern
+    \item per aggiungere altre classi si usa la noun verb analysis
+    \item per verificare il lavoro si usano gli use cases
+    \item per il brainstorming si usano le CRC cards
+\end{enumerate}
 
 
 
