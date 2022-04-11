@@ -707,6 +707,317 @@ Un buon design è \textbf{flessibile, dettagliato, ben documentato e buona possi
 
 \section{T14 - Design concepts}
 
+Un sistema sftware ha diversi possibili problemi:
+\begin{itemize}
+    \item rigidità
+    \item fragilità
+    \item immobilità(difficle riusare i componenti)
+    \item viscosità(più semplice l'hack del mantenimento del design originale)
+\end{itemize}
+
+
+\subsection{Software design concepts}
+\subsubsection{Abstraction}
+L'astrazione permette di focalizzarsi su parti importanti del software senza perdersi nell'implementazione.
+
+Permette la descrizione di un sistema come struttura a
+livelli.
+
+\subsubsection{Refinement}
+processo top-down iterabile che ad ogni passo trasforma istruzioni generiche in istruzioni più specifiche.
+\subsubsection{Nascondere le informazioni}
+
+
+L'information hiding è strettamente legato a:
+\begin{itemize}
+    \item astrazione
+    \item coupling
+    \item coesione
+\end{itemize}
+
+\subsubsection{Modularità}
+
+Un metodo di design può essere detto modulare solo se supporta:
+\begin{itemize}
+    \item decomposability(ridurre in modulli più piccoli)
+    \item composability(accorpare in un unico modulo)
+    \item understandability(un modulo è comprensibile senza sapere gli altri)
+    \item continuity(la modifica in un modulo modifica solo lui)
+    \item protection(bug in un modulo?? affligge solo qul modulo!)
+\end{itemize}
+
+I principi per il design modulare sono: linguistic modular units (i moduli devono corrispondere alle
+unità del linguaggio, come pacchetti o moduli), poche interfacce, poco scambio di informazioni tra
+moduli, interfacce esplicite (se due moduli comunicano, dev'essere ovvio), information hiding(tutte
+le informazioni di un modulo dovrebbero essere private, se non specificatamente dichiarato il contrario, e
+per l'accesso bisogna utilizzare interfacce).
+
+
+\subsubsection{Coesione}
+La coesione misura la chiusura di una relazione tra elementi di un componente/classe. Una coesione forte
+è desiderabile perché semplifica le correzioni, le modifiche, le estensioni, riduce il testing e promuove il
+riutilizzo. Abbiamo più livelli di coesione (dal più basso al più alto):
+\begin{itemize}
+    \item coincidental(elementi senza relazioni ma uniti per convenienza)
+    \item logical(elementi che fanno cose simili)
+    \item temporal(elementi attivi nello stesso tempo)
+    \item procedural(elementi che compongono una singola sequnza di controllo)
+    \item communicational(elementi con stesso input e stesso output)
+    \item sequential(l'output di uno è l'input dell'altro)
+    \item functional(elementi che soppriscono ad un funtiona lrequirement)
+    \item object(operazioni tra oggetti)
+\end{itemize}
+
+\subsubsection{Coupling}
+
+Misura l'interconnessione tra moduli. Quando è debole, i moduli sono fortemente indipendenti. Livelli di
+coupling dal più debole al più forte:
+\begin{itemize}
+    \item no direct(nessuna dipendenza)
+    \item data(solo dati necessari)
+    \item stamp(passati una lista di argomenti ma solo alcuni vengono usati)
+    \item control(si passano flags e altri paramentri)
+    \item externl(legato a device o device drivers)
+    \item common(uso di dati globali)
+    \item content(modificadi dati dell'altro modulo)
+\end{itemize}
+
+Con coupling elevato i componenti sono difficili da comprendere autonomamente,
+le modifiche causano bug in altri moduli e il riuso di moduli fa schifo.
+
+Con coupling basso aumentano i costi di performance ma lo sviluppo ne gode.
+
+
+\section{T15 - Objects oriente design principles}
+\subsection{Principi dell'Object Oriented Design}
+\subsubsection{SRP - Single Responsability Principle}
+Una classe deve avere una sola ragione di cambiare.
+
+Le modifiche ai requirements si mappano sulle responsabilità.
+
+Avere tante classi con responsabilità separate semplifica e rende il design flessibile.
+
+\begin{quotation}
+    \textit{
+        In programming, the Single Responsibility Principle states that every module or class should have
+responsibility over a single part of the functionality provided by the software.
+    }
+\end{quotation}
+
+
+\subsubsection{OCP - Open Closed Principle}
+Un modulo deve essere aperto verso l'esterno ma chiuso all modifica.
+
+Meglio implementare cose in classi derivate piuttosto che modificae una classe.
+
+\begin{quotation}
+    \textit{
+        In programming, the open/closed principle states that software entities (classes, modules, functions, etc.)
+should be open for extensions, but closed for modification. If you have a general understanding of OOP,
+you probably already know about polymorphism. We can make sure that our code is compliant with the
+open/closed principle by utilizing inheritance and/or implementing interfaces that enable classes to
+polymorphically substitute for each other.
+    }
+\end{quotation}
+
+
+\subsubsection{Liskov Substituotion Principle}
+Le classi derivate devono adempiere alle funzioni ereditate dalle classi padre
+altrimenti se si usa una classe derivata al posto delal padre si generano errori.
+
+\begin{quotation}
+    \textit{
+        More generally it states that objects in a program should be replaceable with instances of their subtypes
+without altering the correctness of that program.
+    }
+\end{quotation}
+\subsubsection{ISP - Interface Segregation Principles}
+Avere tante interfacce client-specific è meglio di una generica.
+
+\begin{quotation}
+    \textit{
+        In programming, the interface segregation principle states that no client should be forced to depend on
+methods it does not use. Put more simply: Do not add additional functionality to an existing interface by
+adding new methods. Instead, create a new interface and let your class implement multiple interfaces if
+needed.
+    }
+\end{quotation}
+
+\subsubsection{DIP - Dependency Inversion Principles}
+I moduli di alto livello non dovrebbero dipendere da quelli di basso livello
+ma dovrebbero dipendere da astrazioni.
+
+\subsection{Principi di package cohesion}
+\subsubsection{REP - Release/reuse Equivalency Principle}
+Per riusare un componente non si fa copia incolla(perchè si perdono le modifiche alla libbreria) ma 
+si inserisce il codice mediante una release della libreria e poi si modifica un'istanza.
+
+\subsubsection{CCP - Common Closure Princple}
+Le classi che cambiano insieme devono rimanere insieme.
+
+\subsubsection{CRP - Common Reuse Principle}
+Le classi che non sono reutilizzabili insieme non dovrebbero essere pacchettizate insieme.
+
+\subsection{Package Coupling Principle}
+\subsubsection{ADP - Acyclic Dependencies Principle}
+No cicli nel grafico delle dipendenze.
+
+\subsubsection{SDP - Stabel Dependencies Principle}
+Ogni volta che un pacchetto cambia, tutti quelli che dipendono da lui devono 
+essere validati.
+
+\begin{quotation}
+    \textit{
+        Ovviamente tu preferisci i pacchetti stabili
+    }
+\end{quotation}
+
+\subsubsection{SAP - Stable Abstraction Principle}
+Il pacchetto perfetto è tanto stabile quanto astratto.
+
+I pacchetti astratti dovrebbero essere responsabili e indipendenti, mentre 
+quelli concreti dovrebbero essere irresponsabili e dipendenti.
+
+\subsection{Attività per un buon design}
+\begin{itemize}
+    \item Dividi e conquista(scompore tutto in processi semplici da fare uno alla volta)
+    \item Aumenta la coesione(Un sistema con alta coesione tiene insieme quello che deve stare insieme e lascio fuori il resto)
+    \item Ridurre il coupling(meno interdipendenze tra moduli)
+    \item Aumenta l'astrazione(meglio nascondere i dettagli e ridurre la complessità)
+    \item Aumentare la riusabilità
+    \item Riutilizzare design e codice esistente
+    \item Programmare con l'idea di flessibilità(modifiche future)
+    \item Anticipare l'obsolescenza(pensare alle tecnologie e pianificare la gestione del sistema)
+    \item pensare alla portabilità
+    \item pensare alla testabilità
+    \item sviluppare con l'idea di difendere il software dal'utente.
+\end{itemize}
+
+\section{T16 - Design Patterns}
+
+Un design pattern è una soluzione ricorrente ad un problema comune, che può essere usata
+in modi diversi. È dipendente da linguaggio ed implementazione. I design patterns hanno vari obiettivi:
+\begin{itemize}
+    \item Codificare un buon design
+    \item dare nomi espliciti alle strutture
+    \item 
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
