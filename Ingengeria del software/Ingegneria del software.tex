@@ -554,11 +554,109 @@ Migliore:
 \end{enumerate}
 
 
+\section{T9 - Requirement validation and managment}
+\subsection{Valdation}
+La validazione consiste nella verifica della correttezza dei requisiti, con obbiettivi
+la completezza e i costi.
+\begin{itemize}
+    \item consistenza
+    \item realismo
+    \item verificabilità
+\end{itemize}
+\subsection{Requirements managment}
+Si verificano gli errori, conflitti e inconsitenze.
+
+Soddisfare il cliente e mantenere i costi bassi:
+\begin{itemize}
+    \item identificazione dei requisiti
+    \item processo di modifica
+    \item policy di tracciabilità
+    \item supporto del case tool
+\end{itemize}
+\subsubsection{Case tool support}
+non ho voglia di spiegarlo.
+\subsubsection{Stati dei requirement}
+tutto questo ambaradam è molto simil ad un issue tracker come git.
+\begin{itemize}
+    \item proposal
+    \item approved
+    \item rejected
+    \item implementation
+    \item verified
+    \item deleted
+\end{itemize}
+
+Si fanno sostanzialemnte dei test con un version control e si fa il roll back
+in caso di problemi.
+
+\subsubsection{Tracciabilità}
+Anche questo discorso viene gestito bene da un software tipo git.
+
+\subsubsection{Traciability planning}
+Elemeti fondamentali del planning:
+\begin{itemize}
+    \item tipi di stakeholder
+    \item informazioni richieste
+    \item dove e da chi raccogniere info
+    \item dove e come mantenere le info
+    \item dove e come cercare le info
+\end{itemize}
+
+Ci sono delle limitazioni per il plannign:
+\begin{itemize}
+    \item numero di requirements
+    \item lifetime stimato
+    \item livello di maturità dell'azienda
+    \item dimensione progetto
+    \item altri vincoli dell'utente
+\end{itemize}
+
+\section{T12 - Object constraint lenguage}
+Fa parte delle specifiche UML, e segue uno standard di IBM, è un linguaggio 
+formale usato per descrivere i modelli Object oriented.
+\subsection{Model type}
+sono classi, subclasses, classi di associazione, interfacce ed enumerazioni.
+
+Hanno proprietà e attributi.
+\subsection{Operazioni, espressioni, constraint}
+I constraint sono dei valori booleani che veificano una condizioni, servono
+a porre limitazioni sul tipo di valore che può avere una classe.
+
+\begin{itemize}
+    \item Migliorano la documentazione
+    \item più precisione
+    \item comunicazione senza ambiguità
+\end{itemize}
+
+Vari tipi di constraint:
+\begin{itemize}
+    \item invarianti(quando l'istanza è a riposo)
+    \item precondizionali
+    \item postcondizionali
+    \item guard(vera prima e dopo)
+\end{itemize}
+
+\section{T13 - Design process}
+Processo che permette di capire come implementare il sistema.
+
+Si parte dai requirements e si tiene conto dei design general princilas.
+
+\subsection{Linee guida}
+\begin{itemize}
+    \item esibire organizzazione modulare che fa uso intelligente di controllo tra componenti
+    \item partizione in componenti logici
+    \item descrivere sia dati che procedure
+    \item arrivare ad interfacce che riducono la complessità
+\end{itemize}
+
+Un buon design deve implementare tutti i requirement espliciti del modello di analisi, e tutti quelli impliciti
+desiderati dal cliente. Dev'essere leggibile e comprensibile, sia per chi scrive codice, sia per chi lo testa
+e supporta. In generale, dovrebbe dare un'immagine generale del software, indicandone i dati, i domini
+funzionali e behavioral dal punto di vista dell'implementazione.
 
 
 
-
-
+\subsection{Stati del design process}
 
 
 
