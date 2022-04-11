@@ -900,91 +900,445 @@ in modi diversi. È dipendente da linguaggio ed implementazione. I design patter
 \begin{itemize}
     \item Codificare un buon design
     \item dare nomi espliciti alle strutture
-    \item ciao
+    \item catturare e preservare le info sul design
+    \item facilitare il refactoring
+\end{itemize}
+
+Due forme possibili: \textbf{Alexandrian} e \textbf{GoF}
+\subsection{Creational patterns}
+Creazione flessibile di oggetti(rendendo il sistema indipendente dagli oggetti creati).
+
+\subsubsection{Factory method}
+\textbf{Scopo}: il metodo factory fornisce un'interfaccia per creare oggetti
+in una subclass, pemettendo di modificare gli oggetti creati.
+
+\textbf{Problema}: Immaginiamo di dover creare un'applicazione che gestisca un servizio di logistica. La prima
+versione utilizza solo trasporto su ruota, quindi la maggior parte del codice sta nella classe Truck. Dopo
+un pò, l'app diventa popolare. Decidi di implementare anche il trasporto via mare. Aggiungere la classe
+Ship richiederebbe modifiche in tutto il codice. Aggiungerne altre, pure.
+
+
+\textbf{Soluzione}: Il metodo factory permette di sostituire la creazione di nuovi 
+oggetti (con \textbf{new}) con chiamate a un metodo factory.
+
+Gli oggetti geenrati così sono dei \textbf{prodotti}.
+
+Però i prodotti devono avere l'interfaccia in comune.
+
+\subsubsection{Abstract factory}
+\textit{Capito fin li}
+
+\textbf{Scopo}: L'abstract factory permette di creare famiglie di oggetti related senza specificare
+le classi concrete.
+
+\textbf{Problemo}: Immaginiamo di voler creare un simulatore di negozio di arredamenti. Il codice consiste di
+classi rappresentanti 1) una famiglia di prodotti (sedia, divano, tavolo) 2) varianti di questa famiglia. Serve
+un modo di creare oggetti in modo da matcharli con altri arredamenti della stessa famiglia. Non vogliamo
+inoltre modificare il codice esistente quando aggiungiamo nuovi prodotti o famiglie.
+
+\textbf{Soluzione}: Dichiaro le interfacce di ogni prodotto, le varianti dei prodotti
+sono sottoclassi.
+
+Poi dichiaro l'abstract factory(interaccia con lista di metodi) dove ogni metodo ritorna
+una lista di prodotti astratti.
+
+Poi estendo l'abstract ai prodotti concreti.
+
+\subsubsection{Builder}
+\textbf{Scopo}: permette di costruire oggetti un pezzo alla volta.
+\textbf{Problema}: Se un oggetto ha bisogno di tanti paramentri di inizializzazione avrà un costruttore giga grosso.
+\textbf{Soluzione}: si esegue prima un builder "generico" per poi dare gli altri valori all'oggetto 
+con passaggi successivi.
+
+\subsubsection{Prototype}
+\textbf{Scopo}: Copia gli oggetti esistenti in un'oggetto definito.
+\textbf{Problema}: Immaginiamo di avere un oggetto, e volerne creare una copia esatta. Come fare? Farlo
+dall'esterno non è ideale: ci perderemmo tutti i dati privati! Inoltre, per fare il duplicato dobbiamo
+conoscere la classe concreta dell'oggetto.
+
+\textbf{Soluzione}: Si delega il processo id clonazione all'oggetto effettivo così da non perdere i dati privati.
+Bisogna però implementare il metodo \textit{Clone()}.
+
+\subsubsection{Singleton}
+\textbf{Scopo}: permette di assicurarsi che una classe abbia una sola istanza.
+\textbf{Problema}: 
+\begin{itemize}
+    \item si assicura che una classe abbia una sola istanza
+    \item fornisce un punto di accesso globale alla risorsa
 \end{itemize}
 
 
+\textbf{Soluzione}: 
+\begin{itemize}
+    \item rendere il costruttore di default private
+    \item creare un metodo getInstance che fa da builder
+\end{itemize}
 
 
+\subsection{Structural patterns}
+\subsubsection{Adapter}
+\textbf{Scopo}: permette ad oggetti con interaccia incompatibili di comunicare.
 
+\textbf{Problema}: Immaginiamo di star creando un'app di monitoraggio del mercato in borsa. L'app scarica i
+dati in XML da un'API. Ad un certo punto, vogliamo integrare un'altra API, che però restituisce dati in
+JSON. Potremmo cambiare questa libreria, ma sarebbe un casino.
 
+\textbf{Soluzione}: Creo un'adattatore che converte le interfacce.
 
+\subsubsection{Bridge}
+\textbf{Scopo}: permette di dividere un grande numero di classi in due 
+gerarchie separate.
 
+\textbf{Problema}: Ipotizziamo di avere una classe Shape con due subclasses: Circle e Square. Vogliamo
+estendere questa gerarchia per incorporare i colori, quindi inizialmente proponiamo di creare sottoclassi
+RedCircle, BlueCircle, RedSquare, BlueSquare. È palese che questo approccio non sia sostenibile per il
+futuro.
 
+\textbf{Soluzione}: Semplicemente, facciamo diventare il colore una proprietà dell'oggetto Shape. In questo modo,
+switchamo da ereditarietà a composizione.
 
+\subsubsection{Adapter vs Bridge}
+Entrambi sono utilizzati per nascondere dettagli implementativi. L'adapter fa lavorare insieme componenti
+incompatibili, mentre il bridge permette ad astrazioni ed implementazioni di variare indipendentemente.
 
 
+\subsubsection{Composite}
+\textbf{Scopo}: permette di comporre oggetti in strutture ad albero e lavorare su 
+queste strutture come oggetti individuali.
 
+\textbf{Problema}: computazionalmente una merda a meno che il software non sia a sua volta strutturato ad albero.
 
+\textbf{Soluzione}:Il composite pattern suggerisce di lavorare su prodotti e scatole attraverso un'unica interfaccia,
+che dichiara un metodo per calcolare il costo totale. In un prodotto, restituirebbe il costo del prodotto. In
+una scatola, restituisce la chiamata ricorsiva a tutti i contenuti. \textit{Avete già capito dove voglio arrivare}. In
+questo modo, basta chiamare il metodo di calcolo sulla scatola grande e verrà chiamato ricorsivamente su
+tutti i nodi. \textit{Spaventosamente elegante.}
 
+\subsubsection{Decorator}
+\textbf{Scopo}: Il decorator permette di agganciare nuovi comportamenti ad oggetti, inserendoli in oggetti wrapper
+che contengono questi nuovi behaviors.
 
 
+\textbf{Problema}: non si possono coprire tutti casi con l'ereditarietà(per lo meno se sei umano).
 
+\textbf{Soluzione}: Diventa una task di aggregazione più che di eretidarietà.
 
+Si crea un oggetto wrapper che contiene i metodi del taghet e li chiama, così l'oggetto
+ di base si interfaccia al wrapper per tutte le casistiche(tipo notifiche di facebook, whatsapp, sms, telegram, \dots).
 
 
+\subsubsection{Facede}
+\textbf{Scopo}: Fornisce un'interfaccia semplice per una libreria, framework o altre cose.
 
+\textbf{Problema}: Immaginiamo di dover far funzionare il nostro codice con un set molto grande di oggetti che
+appartengono ad un sofisticato framework. Dovremmo, prima di tutto, inizializzare tutti gli oggetti, tenere
+traccia delle dipendenze, eseguire metodi nell'ordine corretto, e via dicendo. Il funzionamento del software
+diventerebbe quindi molto dipendente da questo framework.
 
 
+\textbf{Soluzione}: la facede fornisce una semplice interfaccia al sottositema complesso.
 
+\subsubsection{Flyweight}
+\textbf{Scopo}: permette di ridurre lo spazio di memoria necessario al salvataggio di oggetti.
 
+\textbf{Problema}: Immaginiamo di dover creare un videogioco sparatutto. Decidiamo di implementare un sistema
+di particelle complesso, in modo che proiettili, missili, detriti siano gestiti da oggetti. Avremmo quindi
+una struttura in cui ogni particella occupa molto spazio in memoria:
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[height=0.2\linewidth]{imgs/9 - flyweight.png}
+    \includegraphics[width=0.4\linewidth]{imgs/10 - flyweigth 2.png}
+    \label{fig:flyweight}
+    \caption{flyweight}
+\end{figure}
 
 
+\textbf{Soluzione}: Salviamo tutte le informazioni comuni in una classe a parte.
 
 
+\subsubsection{Proxy}
+\textbf{Scopo}: Permette di avere un sostituto ad un oggeto, potendo eseguire operazioni prima e dopo.
 
+\textbf{Problema}: Perché dovremmo controllare l'accesso? Per esempio, se avessimo un oggetto che usa molte
+risorse di sistema ma che non utilizziamo sempre, sarebbe utile avere un lazy loading, ossia un'istanziazione
+solo quando necessario.
 
 
+\textbf{Soluzione}: Creiamo quindi una classe proxy che abbia la stessa interfaccia dell'oggetto desiderato. In
+questo modo, agli oggetti che lo richiedono, lo passiamo al posto dell'oggetto vero e proprio. Il proxy 
+crea quindi l'oggetto vero solo dopo la prima richiesta.
 
 
+\subsection{Behavioral patterns}
+A volte è necessario eseguire richieste agli oggetti senza conoscenze sull'operazione
+ richiesta o il destinatario della stessa. Un esempio possono essere le librerie grafiche
+  per bottoni e menù, che non implementano l'azione ma passano la richiesta.
+   I behavioral patterns si occupano di questo: gestiscono l'assegnamento di
 
+\subsubsection{Chain of responsabilities}
+\textbf{Scopo}: permette di passare richieste attraverso una catena di handlers.
 
+\textbf{Problema}: Immaginiamo di lavorare a un sistema di ordini online. Vogliamo restringere l'accesso al
+sistema, in modo che solo gli utenti autenticati possano ordinare. Vogliamo inoltre degli amministratori,
+che possano vedere tutti gli ordini. Decidiamo che questi controlli devono essere fatti in sequenza: se
+l'autenticazione fallisce, non è necessario fare altre verifiche. Col tempo, si aggiungono altre verifiche: un
+sanitizing dei dati, una verifica degli IP, un motore di caching. Ad ogni verifica aggiunta, il codice diventa
+un porcile.
 
+\textbf{Soluzione}: Trasformiamo quindi queste verifiche in handlers: ognuna avrà un metodo check, ed un
+campo per il prossimo handler della catena.
 
+\subsubsection{Command}
+\textbf{Scopo}: trasforma una richiesta in un oggetto a se stante.
 
 
+\textbf{Problema}: Immaginiamo di lavorare ad un software di text editing. Vogliamo creare una toolbar che
+contenga tasti per le operazioni più importanti, con una classe Button. Cominciamo a creare subclasses
+per ogni bottone necessario: OKButton, SaveButton, ApplyButton, ed ogni tasto che si aggiunge, la nostra
+voglia di vivere cala. Dev'esserci un modo più furbo.
 
+\textbf{Soluzione}: Estraiamo i dati della richiesta tramite un oggetto dall'interfaccia Command, che avrà come
+implementazioni i vari tipi di comando possibili, aventi un solo metodo execute. In questo modo, 
+ogni bottone chiamerà l'execute del suo Command, ma non solo: i comandi potrebbero, ad esempio, anche essere
+chiamati da scorciatoie da tastiera!
 
 
+\subsubsection{Interpreter}
+\textbf{Scopo}: Mappa un dominio ad un linguaggio, il linguaggio ad una grammatica, e la
+grammatica ad un design object-oriented gerarchico.
 
+\textbf{Problema}: Se il dominio è
+caratterizzato da un linguaggio, il problema può essere risolto tramite un interprete.
 
+\textbf{Soluzione}: 
+Modelliamo il dominio con una grammatica ricorsiva ad albero, in cui ogni regola è un nodo
+o una foglia.
 
 
 
 
+\subsubsection{Iterator}
+\textbf{Scopo}: passa dentro ad una collection senza leekare la logica.
 
+\textbf{Problema}: Creiamo un nostro oggetto di collection per salvare dati, con una struttura cazzutissima ed
+ultra segreta, che ci permetterà di diventare milionari grazie all'intelligentissimo metodo di esplorazione dei
+dati che ho. Abbiamo ora un problema: non vogliamo esporre le logiche con cui esploriamo la collection.
 
+\textbf{Soluzione}: usiamo un iterator con i metodi get next e get prev per prendere gli oggetti.
 
 
+\subsubsection{Mediator}
+\textbf{Scopo}: riduce la coesione tra oggetti. 
+Riduce la comunicazione 
+fra gli oggetti perchè parlano attraverso lui(mediatore).
 
 
 
+\subsubsection{memento}
+\textbf{Scopo}: Permette di salvare e ripristinare lo stato degli oggetti 
+senzaz rivelarne i dettagli implementativi.
 
+\subsubsection{Observer}
+\textbf{Scopo}: È un pattern che permette di definire un meccanismo di 
+iscrizione per notificare 
 
+\subsubsection{State}
+\textbf{Scopo}: permette ad un oggetto di alterare il suo comportamento in base allo stato.
 
+\subsubsection{Strategy}
+\textbf{Scopo}: pattern che definisce una famiglia di algoritmi, inseriti in classi
+separate e renderne gli oggetti intercambiabili.
 
+\subsubsection{Template}
+\textbf{Scopo}: permette di definire lo scheletro di un algoritmo nella sua superclasse,
+poi nelle sotto classi lo si agghinda.
 
+\subsubsection{Visitor}
+\textbf{Scopo}: Separa gli algortimi dagli oggetti su cui opera.
 
+\section{T17 - Architectural design}
+Permette di comprendere l'organizzazione ed il design della struttura generale
+di un sistema di software.
 
+È il collegamento tra design e requirements engineering.
 
+Identifica i componenti strutturali e le loro relazioni.
 
+L'architettura è un modello di alto livello che descrive gli aspetti critici del
+sistema ed è comprensibile alla maggior parte degli stakeholders, permettendo la valutazione delle proprietà
+di sistema prima della sua esistenza. Fornisce strumenti e tecniche per costruire il sistema.
 
+\subsection{Software architecture}
 
+Software architecture sono gli aspetti rilevanti dell'architettura.
 
+Essa è una traccia che identifica
+componenti, interazioni, interconnessioni ed è definita in modo formale o informale. È fondamentale avere
+un vocabolario condiviso e ricco.
 
 
+\subsection{Elementi architetturali}
+Un subsystem è un sistema unico, le quali operazioni sono indipendenti dai servizi di altri subsystems. Un
+modulo è un componente di sistema che fornisce servizi ad altri componenti, ma non può essere considerato
+un subsystem.
 
+\subsubsection{Componenti}
+Essi sono unità di computazione o data stores: clients, servers, databases, filtri, layers.
+Possono essere semplici o composti(subsystem). Un architettura consistente in più componenti compositi
+è un sistema di sistemi.
 
+\subsubsection{Connettori}
+Sono elementi architetturali che modellano le interazioni tra componenti e le regole che le
+governano. Le interazioni si dividono in semplici (chiamate procedurali, variabili condivise) e comples-
+se/semantically rich (client-server, database access, async, piped data streams)
 
 
+\subsubsection{Configurazioni}
+Sono grafi connessi di componenti e connettori che descrivono strutture architetturali
+identificanti connettività, proprietà concorrenti/distribuite, aderenza ad euristiche/stili. I componenti
+compositi sono configurazioni.
 
 
 
+\subsection{Architectural design process}
+Tre fasi:
+\begin{itemize}
+    \item System structuring(decompongo in sottosistemi e identifico la comunicazione fra sotto sistemi)
+    \item Control modelling(scegliere un modello di controllo tra le parti)
+    \item Modular decomposition(decompongo i subsystem in moduli)
+\end{itemize}
 
+\subsubsection{Box and line diagrams}
+Sono diagrammi semplici ed informali che mostrano i subsystem e le loro relazioni. Mancano di semantica,
+non mostrando i tipi di relazioni o le proprietà. I requisiti per la semantica dei modelli dipendono da come
+il modello è usato.
 
+\subsubsection{Software architecture views}
+\begin{itemize}
+    \item logical view(astrazioni chiave del sistema)
+    \item process view(mostra interazioni dei processi)
+    \item development view(decomposizione del software)
+    \item physical view(hardware)
+\end{itemize}
 
+Gli step per questo design sono capire i requirements, definire l'architettura, rappresentare e
+comunicare l'architettura, valutare l'architettura. Si utilizzano implementazione, miglioramento e
+manutenzione.
 
+
+\subsubsection{Non functional requirements}
+\begin{itemize}
+    \item performance
+    \item security(architettura a strati)
+    \item safety(trovare features con possibili falle di sicurezza)
+    \item availability(includere componenti rindondanti)
+    \item maintenability(usare componenti sostituibili e di cui si possa fare il fine-grain)
+\end{itemize}
+
+
+\subsubsection{Euristica dei subsystem}
+Bisogna assegnare oggetti identificati nello stesso use case, allo stesso subsystem. Creare un subsystem
+dedicato per oggetti atti al movimento di dati tra subsystems. Minimizzare il numero di associazioni tra
+subsystem boundaries. Tutti gli oggetti nello stesso subsystem devono essere funzionalmente collegati.
+
+
+\subsubsection{layering e partitioning}
+Sono tecniche utili ad ottenere un basso coupling, che permettono di suddividere un sistema in subsystems.
+Il layering divide il sistema in strati che forniscono servizi allo strato più alto. 
+Così, uno strato dipende solo da livelli più bassi e non conosce quelli più alti. Il partitioning divide un sistema in subsystems
+indipendenti.
+
+
+\subsubsection{Architecture reuse}
+I sistemi nello stesso dominio spesso hanno architetture simili: nascono quindi dei pattern/stili che
+catturano l'essenza di un'architettura.
+
+\subsection{Architectural patterns}
+Sono descrizioni di una buona pratica di design, testata in diversi ambienti, ed includono informazioni sul
+loro utilizzo. Sono rappresentati da tabelle e grafici.
+
+
+\subsubsection{Model-View-Control}
+
+Utilizziamo l'MVC quando abbiamo più modi di vedere ed interagire coi dati, e non abbiamo conoscenza
+dei futuri requirements dell'interazione coi dati. I dati e le rappresentazioni possono così cambiare indipendentemente, e abbiamo più views degli stessi dati. Aumenta però la complessità del codice. Abbiamo
+tre componenti:
+\begin{itemize}
+    \item Model(tiene e gestisce i dati)
+    \item View(Presenta i dati all'utente)
+    \item Control(risponde agli input e interagisce con i modelli)
+\end{itemize}
+
+\subsubsection{Layered Architecture}
+Qui, ogni layer fornisce dei servizi a quello sopra. Il più basso contiene i core services. Si utilizza quando
+dobbiamo creare nuove parti sopra sistemi esistenti, e lo sviluppo è basato su vari team che lavorano a
+funzionalità diverse. Risolve anche i requirements di sicurezza multi-level. È un ottimo sostituto dei layer
+di implementazione, supporta la ridondanza, ma ha problemi di performance e rende difficile separare
+nettamente i layers.
+
+\subsubsection{Repository}
+
+La repository è accessibile a tutti i componenti, che non interagiscono tra loro ma solo con la repository,
+che gestisce tutti i dati. Viene utilizzato quando abbiamo grandi volumi di informazioni e l’inclusione
+di dati nella repo triggera un'azione. Ha componenti indipendenti, propagazione dei cambiamenti, data
+management consistente, ma rischio di failure, comunicazione inefficiente e difficoltà di distribuzione della
+repo.
+
+\subsubsection{Client-Server}
+
+Utilizziamo client-server quando i dati devono essere accessibili da più posizioni, ed il carico è variabile
+(distribuzione dei server). Facilita la distribuzione di server e funzionalità, ma ogni server è un punto di
+failure, abbiamo performance imprevedibili, e problemi di gestione quando i server hanno diversi proprietari.
+
+\textbf{Thin e Fat client} Un thin client implementa l'interfaccia grafica, delegando al server ed alla rete le
+operazioni più pesanti. Un fat client, invece, esegue l'applicazione localmente, ed è quindi più complesso e
+potente. Gli aggiornamenti vanno installati su tutti i clients.
+
+
+\subsubsection{Pipe and filter}
+Il processo dei dati in un sistema è organizzato tramite una sequenza di componenti di processing, ognuno
+dei quali esegue una tipologia di trasformazione dei dati, i quali scorrono da un componente all’altro.
+Si utilizza in applicazioni di data processing nelle quali gli input sono processati in stadi separati per
+generare output. Un esempio sono i compilatori. Si prestano bene al riutilizzo ed ai business processes.
+Hanno evoluzione semplice e implementazione sequenziale/parallela. Devono però avere un formato di data
+transfer condiviso, e codificare/decodificare i dati.
+
+\subsection{Application architectures}
+I sistemi di applicazioni possono essere raggruppati per il tipo di business. Siccome i business hanno molto
+in comune, i loro sistemi applicativi tendono ad avere un'architettura comune che riflette i requirements.
+Un'architettura generica può essere configurata e adattata per creare un sistema che ha specifici require-
+ments. Le application architectures sono un punto di partenza per il design, utilizzabili come checklist,
+come modalità organizzativa, come mezzo di riutilizzo, come vocabolario.
+
+
+\subsubsection{Centralied vs Decentralized}
+Il design centralizzato rende facili le modifiche nella control structure, penalizzando però le performance
+del singolo control object. Quello decentralizzato divide le responsabilità, funziona bene con l'Object-
+Oriented e permette di dividere il carico. Per scegliere, osserviamo i sequence diagrams ed i control
+objects, verificandone la partecipazione. Se il sequence diagram assomiglia a una forchetta, centralizzato,
+se assomiglia a una sedia, decentralizzato. C'è scritto veramente? I sequence diagrams sono derivati dagli
+use case.
+
+
+
+\subsubsection{Procedure vs event driven}
+Nel procedure driven, il controllo è nel codice del programma e l'utente ha poco controllo. Nell'event driven,
+il controllo risiede in un dispatcher che chiama funzioni via callbacks; l'utente ha qui molto controllo.
+
+\subsubsection{Vantaggi di una system architecture esplicita}
+\begin{itemize}
+    \item Comunicazione tra stakeholder(discutere del sistema)
+    \item analisi del sistema
+    \item riutilizzo in larga scala
+    \item definizione di strutture di divisione del lavoro
+\end{itemize}
+
+Il design dell'architettura è uno dei primi passi della metodologia agile, perché il refactor futuro è molto
+costoso.
+
+
+\section{T18 - User Interface Design}
 
 
 
