@@ -1340,21 +1340,114 @@ costoso.
 
 \section{T18 - User Interface Design}
 
+Gli utenti di un sistema spesso giudicano più l'interfaccia delle funzionalità: un'interfaccia realizzata male
+può causare errori o far disinstallare il software. Nel design, bisogna considerare i fattori umani: memoria
+a breve termine limitata, errori, capacità differenti, preferenze di interazione diverse. Dobbiamo quindi
+matchare le skills, esperienze ed aspettative degli utenti,
+considerandone però anche i limiti e le possibilità
+di errore. È utile basarsi su un set di design principles:
+
+\begin{itemize}
+    \item User familiarity(interfaccia user oriented)
+    \item consistenza(consistenza dell'insieme)
+    \item minimal surprise(un determinato comano funziona in maniera conosciuta dall'utente)
+    \item recoverability(resiliente agli errori dell'utente)
+    \item user guidance(sistemi di aiuto)
+    \item real word mapping(layout famiglaire per le informazioni)
+    \item consistency(futures simili nello stesso posto)
+    \item less is more(feature meno importanti non devono essere in mezzo ai coglioni)
+    \item anticipation(nascondere features inaccessibili)
+    \item customization(per utenti avanzati features fighe)
+    \item transparency(l'interfaccia non deve coprire altri contenuti)
+    \item contiguity(testi esplicitanti vicino a icone grafiche)
+    \item memory load(ricordare all'utente i dettagli)
+    \item user control(identificare il responsabile delle azioni)
+    \item speak user's lenguage(istruzioni comprensibili)
+\end{itemize}
+
+Alcuni tipi di componenti:
+\begin{itemize}
+    \item windows
+    \item icons
+    \item menus e pulsanti
+    \item pointing
+    \item graphic element
+\end{itemize}
+
+\textbf{Direct} manipulation L'utente si sente in controllo del computer, ci mette poco ad imparare, ottiene
+feedback immediati. Però, la derivazione di un information space model è difficile, la navigazione può
+essere complessa e quindi richiedere molte risorse.
+
+\textbf{Menu} I comandi sono presentati in una lista, lo sforzo di scrittura è minimale, gli errori improbabili.
+È possibile fornire aiuto contestuale. Però, le azioni complesse (and/or) sono difficili da rappresentare. I
+menù sono adatti a poche opzioni ed utenti non esperti, perché gli esperti preferiscono i comandi testuali.
+
+\textbf{Form} Il form permette semplice data-entry, facilità di apprendimento, possibilità di verifica. Però richiede
+molto spazio a schermo e causa problemi quando l'utente non richiede esattamente ciò che è presente a
+schermo.
+
+\textbf{Command language} I comandi permettono uno sviluppo rapido, di complessità arbitraria ed interfacce
+minimali. Però, gli utenti dovranno ricordare il linguaggio: non è adatto ad utenti saltuari. Faranno inoltre
+errori, e sarà richiesta la possibilità di scrittura.
+
+\textbf{Linguaggio naturale} Esso è accessibile ad utenti inesperti ed estensibile facilmente. Però, il vocabolario
+è limitato e confinato a domini specifici. La tecnologia non è del tutto adatta a rendere queste interfacce
+accessibili ad utenti principianti (questa slide probabilmente è stata scritta nel 2004, quando Siri e Google
+Assistant non esistevano. Un aggiornamento non sarebbe male eh), ma gli utenti esperti odiano dover
+scrivere molto. È necessario poter scrivere.
+
+
+
+\subsection{Design process}
+
+Per il design è utile sviluppare un prototipo low-fidelity, che sia semplice ed economico anche nella modifica,
+in modo da far capire le caratteristiche principali senza concentrarsi sulle piccolezze estetiche. Bisogna
+spiegare le convenzioni agli utenti ed è difficile mostrare i comportamenti. Il processo di design consiste in:
+\begin{enumerate}
+    \item analisi e comprensione delle attività dell'utente
+    \item produzione di prototipi su carta e confornto con gli utenti
+    \item design del prototipo dinamico e valutazione
+    \item design prototipo eseguibile, valutazione e implementazione
+\end{enumerate}
+
+\subsubsection{Information presentation}
+L'information presentation è costituita dallo studio di come presentare le informazioni all'utente, direttamente o trasformandole. L'MVC è una modalità che supporta più presentazioni di dati. Dobbiamo così
+porci più domande:
+\begin{itemize}
+    \item l'utente è interessato alle info e alle loro relazioni?
+    \item quanto rapidamente variano?
+    \item l'utente deve poter rispondere ai cambiamenti?
+    \item manipolazione diretta?
+    \item testo o numeri?
+\end{itemize}
+
+Sfruttiamo i colori per supportare le
+attività dell'utente in maniera intelligente e consistente, stando attenti anche agli accostamenti.
 
 
 
 
+\textbf{Messaggi di errore} Una corretta rappresentazione degli errori è fondamentale. I messaggi devono essere
+educati, concisi, consistenti e costruttivi.
 
 
+\subsection{Valutazione della user interface}
+Dopo il lavoro di design, bisogna valutarlo vs. le specifiche di usability, seguendo parametri come learna-
+bility, speed of operation, robustness, recoverability, adaptability. Utilizziamo più tecniche di valutazione:
+\begin{itemize}
+    \item expert review
+    \item questioanri
+    \item registrazioni video dell'utilizzo
+    \item strumenti di raccolta delle info
+    \item feedback degli utenti
+    \item competitive usability testing
+\end{itemize}
 
+\section{T19 - UML Diagrams for system design}
 
-
-
-
-
-
-
-
+\subsection{Component diagram}
+Il component diagram mostra gli elementi concettuali del business process (in UML1 erano componenti
+fisici), che forniscono o utilizzano interfacce per l'interazione con altri costrutti del sistema.
 
 
 
