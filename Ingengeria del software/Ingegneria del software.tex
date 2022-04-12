@@ -1452,72 +1452,214 @@ fisici), che forniscono o utilizzano interfacce per l'interazione con altri cost
 
 
 
+\textbf{Component} Unità logica del sistema, ha interfacce definite ed è rappresentato da un rettangolo.
+
+\textbf{Interface} Descrive un gruppo di operazioni usate o create dai componenti. Un cerchio intero rappresenta
+un'interfaccia creata, mezzo ne rappresenta una required.
 
+\textbf{Dependencies} Le dipendenze sono indicate da frecce tratteggiate.
 
+\textbf{Ports} Le porte sono rappresentate da quadrati sul bordo. Sono usate per supportare l’esposizione di
+un'interfaccia required/created.
 
 
+\subsection{Package diagram}
 
 
+Il package diagram serve per rappresentare la struttura dei package, dove i package 
+vengon usati in progetti di grandi dimensioni per aumentare la modularità.
 
+Qui vengono aggiunte anche le dipendenze nel disegno delle dipendenze.
 
+\subsection{Deployment diagram}
+Il deployment diagram mostra l'architettura di esecuzione del software, quindi processori, nodi, devices,
+le loro connessioni e la distribuzione dei file. Utilizziamo questi diagrammi per mostrare l’hardware e
+software di esecuzione.
 
+\section{T20 - Object Oriented Desing}
+L'Object Oriented Design ha lo scopo di aggiungere dettagli alla requirements analysis e all’architecture
+model, prendendo decisioni riguardanti l'implementazione.
+Gli obbietivi sono:
+\begin{itemize}
+    \item riutilizzare le conoscenze del passato
+    \item riutilizzare funzionalità disponibili
+    \item svuluppare la definizione di robustezza e adattabilità
+    \item nuove funzioni
+    \item adattare ssitema esistente a nuovo ambiente
+\end{itemize}
 
+\textbf{4 step fondamentali}:
+\begin{enumerate}
+    \item identificazione di soluzioni esistenti(con l'ereditarietà sfruttiamo componenti, soluzioi e design patterns) 
+    \item interface specification(descriviamo bene ogni class interface)
+    \item object model restructuring(miglioriamo la comprensibilità e l'estensibilità)
+    \item object model optimization(miglioriamo le Performance)
+\end{enumerate}
 
 
+\subsection{Refactoring}
+Cambio della struttura interna senza cambiare il comportamento "visto" dall'esterno.
 
+Migliora il design del software, velocizzandolo, rende il design più comprensibile, rende il debugging più facile, permette
+di programmare più velocemente. Teniamo in conto tre principi:
+\begin{itemize}
+    \item non si aggiungo funzioni nel refactoring
+    \item verificare l'esistenza di test ottimali prima del refactoring
+    \item piccoli passi localizzati
+\end{itemize}
 
+\subsection{Tecniche di riutilizzo}
+\subsubsection{Ereditarietà}
+Due utilizzi:
+\begin{itemize}
+    \item Descrizione delle tassonomie: utilizzata durante la requirements analysis, identifica oggetti del domi-
+    nio che hanno una relazione, allo scopo di rendere l'analysis model più comprensibile.
+    \item itemizeSpecifica delle interfacce: usata durante l'object design, identifica le signatures degli oggetti identificati, allo scopo di aumentare il riutilizzo, la modificabilità, l'estensione.
+\end{itemize}
 
+Distinguiamo, inoltre, tra inheritance (white-box reuse), e composition (black-box reuse).
 
+Abbiamo più ragioni per le quali può essere necessaria la
+creazione di oggetti:
+\begin{itemize}
+    \item nuovi compenenti della GUI
+    \item implementazione di algoritmi
+    \item classi controller e cooridnator
+\end{itemize}
 
+\subsubsection{Delegation}
+Nella delegation, due
+oggetti sono coinvolti nella gestione di una richiesta del client: il receiver delega le operazioni al delegate,
+assicurandosi che il client non utilizzi il delegate in modo errato.
 
+\subsubsection{Contraction}
+Il goal della contraction è rendere le operazioni della superclass invisibili, implementando
+metodi nella superclasse ed overridandoli con metodi vuoti nella subclass.
 
+\subsection{package design}
+Il packaging design impacchetta il design in unità discrete che possono essere modificate, compilate,
+collegate, riutilizzate.
 
+Due principi base: minimizzare il coupling,
+massimizzare la cohesion. Come fare?
+\begin{enumerate}
+    \item partire con un'interfaccia per ogni subsystem
+    \item limitare il numero di operazioni dell'interfaccia
+    \item se l'interfaccia ha troppe operazioni, riconsiderare il umero di interfacce
+    \item se abbiamo poche interfacce, riconsideriamo il numero di subsystem
+\end{enumerate}
 
+\subsection{Information hiding}
+Per ottenere un buon information hiding, definiamo interfacce pubbliche, applicando il ”need to know”
+principle: meno dettagli una classe deve sapere, più facile è cambiarla/non rovinarla con cambiamenti.
 
 
 
 
 
+\setcounter{section}{21}
+\section{T22 - testing}
 
 
+\subsection{Componenti del testing}
+\subsubsection{Test plan}
+Il test plan è utilizzato per dimostrare che il software è privo di falle e si comporta come richiesto dai
+requirements.
+\subsubsection{Test specification}
 
+Documenta lo scopo di un test; in caso di test compositi, documenta la relazione tra le parti ed il whole
+test.
+Descrive le condizioni che indicano quando il test è completo. In generale, è un modo per valutare i
+risultati.
 
+\subsubsection{Test oracle}
+È un set di risultati predetti per un set di test, e si usa per determinare il successo del testing.
+MOlto complicato da creare.
 
+\subsubsection{Test cases}
+È un set di input al sistema. Un testing di successo è basato sulla scelta dei giusti test cases.
 
+\subsubsection{Test suite}
+Ovviamente bisogna testare il codice per farlo funzionare la prima volta, facendo ad hoc testing o costruendo
+una test suite.
 
+Distinguiamo tra due tecniche di testing: glass box testing,
+in cui esaminiamo il codice, e black box testing, basato sulla conoscenza del risultato atteso.
 
 
+\subsection{Tipologia di testing}
 
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{imgs/11 - tipologie di testing.png}
+    \label{fig:testing}
+    \caption{Tipologie di testing}
+\end{figure}
 
+\subsubsection{Unit testign}
+Lo unit testing testa le singole unità che compongono il sistema, allo scopo di trovare falle in algoritmi,
+dati, sintassi.
 
+Distinguiamo,
+anzitutto, tra static testing(analisi, code review) e dynamic testing (black-box, white-box).
 
 
+\subsubsection{Integration testing}
 
+L'integration testing testa un gruppo di subsystems, ed eventualmente l’intero sistema. È fatto dagli
+sviluppatori per testare le interfacce tra subsystems. L'intero sistema è visto come una collezione di
+subsystems, determinati durante il system e object design.
 
 
+\textbf{Driver} È un componente che chiama l'unità testata e controlla i test cases
+\textbf{Stub/Double} è un componente che simula la presenza di un altro, rispondendo alle chiamate con dati
+falsi. Non deve comportarsi esattamente come chi sostituisce, ma deve fornire circa la stessa API. Ne
+distinguiamo 4 tipi:
+\begin{itemize}
+    \item dummy
+    \item stub(forza il sistema verso il path che vogliamo provare)
+    \item mock(valori hardcoded)
+    \item fake(implemetazioni alternativa)
+\end{itemize}
 
+\subsubsection{System testing}
+Il system testing testa l'intero sistema, ed è fatto dagli sviluppatori allo scopo di determinare se il sistema
+rispetta i requirements funzionali e di performance.
 
 
+I test cases sono centrati attorno ai requirements e alle funzioni
+chiave, ed il sistema è trattato come una black box. Gli unit test cases sono riutilizzati, ed i nuovi test
+cases vanno sviluppati.
 
 
 
 
+\textbf{Performance testing} Il goal è tentare di violare i non-functional requirements, testando come il sistema
+si comporta quando è sovraccaricato.
 
 
+\textbf{Acceptance Testing} Il goal è dimostrare che il sistema è pronto per l'utilizzo, con test e svolti scelti
+dal cliente. Distinguiamo tra alpha test, in cui si testa nell'ambiente di sviluppo, e beta test, in cui si
+testa nell'ambiente del cliente.
 
 
+\subsection{Object oriented tesiting}
 
+\textbf{Object Class Testing} Un test completo di una classe testa tutte le operazioni associate, gli attributi,
+tutti gli stati. L'ereditarietà rende questo test più complesso.
 
 
-
-
-
-
-
-
-
-
+\textbf{Ereditarietà, polimorfismo, dynamic binding}
+\begin{itemize}
+    \item Ereditarietà: i metodi ereditati devono essere ritestati nelle subclasses: il contesto delle superclasses
+    potrebbe essere incompleto
+    \item Polimorfismo: i parametri devono avere più di un set di valori e un'operazione deve essere implemen-
+    tata da più di un metodo
+    \item Dynamic binding: i metodi che implementano un'operazione sono sconosciuti fino al runtime
+\end{itemize}
+\textbf{Continuous testing} Il continuous testing consiste in build e relativo testing ogni giorno, in modo che
+il sistema sia sempre eseguibile.
 
 
 
@@ -1528,4 +1670,4 @@ fisici), che forniscono o utilizzano interfacce per l'interazione con altri cost
 
 
 \end{document}
-
+% materia spiegata malissimo per dare un esame nel pomeriggio.
