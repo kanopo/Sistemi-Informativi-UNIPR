@@ -37,8 +37,665 @@
     \listoftables
 
 
+    \newpage
 
-    \include{Argomenti/1 - Elementi di teoria degli insiemi.tex}
+    \section{Insiemi e funzioni}
+\subsection{Insieme}
 
+\begin{equation*}
+    A = \{1,2,3\}
+\end{equation*}
+
+\begin{itemize}
+    \item $1 \in A$
+    \item $4 \notin A$
+\end{itemize}
+
+\subsubsection{Caratteristiche}
+\begin{enumerate}
+    \item appartenenza di un elemento
+    \item un elemento compare una sola volta
+    \item no ordine di comparizione
+\end{enumerate}
+
+A e B sono due insiemi uguali se ogni elemento di B appartiene ad A e ogni elemento di A appartiene a B.
+
+
+\textbf{Cardinalità}: numero di elementi in un insieme.
+
+\subsection{Operazioni tra insiemi}
+\begin{itemize}
+    \item Unione
+    \item Intersezione
+    \item Differenza
+\end{itemize}
+
+\subsection{Completamento di un'insieme}
+\begin{equation*}
+    C_{(A)} = A^C = \{x : x \notin A\}
+\end{equation*}
+
+Esempio:
+
+P è l'insieme naturale dei numeri pari? allora il completamento sono tutti i numeri naturali dispari.
+
+
+\begin{itemize}
+    \item $\mathbb{N}$ sono gli interi positivi $\{1,2,3,\dots\}$
+    \item $\mathbb{Z}$ sono gli interi $\{-\infty, \dots, -2, -1, 0, 1, 2, \dots, +\infty\}$
+    \item $\mathbb{Q}$ sono i razionali $\{\frac{p}{q} : q,p \in \mathbb{Z}\}$
+    \item $\Re$ sono i reali
+\end{itemize}
+
+\subsection{Funzioni (applicazioni, trasformazioni, mappe)}
+\begin{equation*}
+    f: x \rightarrow f(x)
+\end{equation*}
+
+Dove la $x$ è il dominio e $f(x)$ è il codominio.
+
+La funzione trasforma l'elemento di un'insieme in un'elemento anche di un'altro insieme.
+
+\subsection{Funzione iniettiva}
+\textbf{Definizione:}
+
+$f$ è \textbf{iniettiva} se associa a elementi distinti del dominio a elementi distinti del codominio.
+
+\begin{equation*}
+    \forall x_1, x_2 \in X : x_1 \neq x_2 \Rightarrow f(x_1) \neq f(x_2)
+\end{equation*}
+
+Se invece le due $x$ sono uguali, le loro $f(x)$ saranno uguali.
+
+\subsection{Immagine di una funzione}
+
+\begin{equation*}
+    f : X \rightarrow Y
+\end{equation*}
+
+L'immagine di $f$ è il sottoinsieme di $Y$ che contiene tutti gli elementi di $Y$ che si possono ottenere partendo da $X$.
+
+\begin{equation*}
+    Im f = \{y \in Y \Leftrightarrow \exists x \in X : y=f(x)\}
+\end{equation*}
+
+\textbf{Definizione:}
+
+$f$ è \textbf{suriettia} se $Im f = Y$.
+
+\textbf{Definizione:}
+
+$f$ e \textbf{biettiva} se è suriettiva e iniettiva
+
+
+\section{Dominio di funzione}
+
+\textbf{Logaritmi:}
+\begin{equation}
+    \ln(AB) = \ln(A)+\ln(B)
+\end{equation}
+
+\begin{equation}
+    \ln(\frac{A}{B}) = \ln(A)-\ln(B)
+\end{equation}
+
+Sostanzialemte il dominio è quella parte di spazio nel piano dove la funzione è verificata(esiste).
+
+
+
+\section{Funzioni invertibili}
+\textbf{Definizione:}
+Sia:
+\begin{equation*}
+    f:X \rightarrow Y \Rightarrow g:Y\rightarrow X
+\end{equation*} 
+
+$g$ è l'inversa di $f$.
+
+\subsection{Monotonia}
+
+Se:
+\begin{equation*}
+    \forall x_1,x_2 : x_1<x_2
+\end{equation*}
+
+la funzione si dice \textbf{monotona crescente}.
+
+Se: 
+\begin{equation*}
+    \forall x_1,x_2 : x_1 \leq x_2
+\end{equation*}
+
+la funzione si dice \textbf{strettamente crescente}.
+
+Se: 
+\begin{equation*}
+    \forall x_1,x_2 : x_1 > x_2
+\end{equation*}
+
+la funzione si dice \textbf{monotona decrescente}.
+
+Se: 
+\begin{equation*}
+    \forall x_1,x_2 : x_1 \geq x_2
+\end{equation*}
+
+la funzione si dice \textbf{strettamente decrescente}.
+
+
+\section{Proprietà di funzioni reali}
+\subsection{Funzioni pari e dispari}
+
+Si dice \textbf{pari} se:
+\begin{equation*}
+    \forall x \in D \rightarrow f(-x) = f(x)
+\end{equation*}
+
+Si dice \textbf{dispari} se:
+\begin{equation*}
+    \forall x \in D \rightarrow f(-x) = -f(x)
+\end{equation*}
+
+\subsection{Funzioni periodiche}
+Si ripete con periodo t.(seno coseno...)
+
+\subsection{Funzioni concave/convesse}
+La funzione è concava se il segmento che congiunge due punti si trova al di sotto del grafico.
+
+La funzione si dice convessa se il segmento che unisce due punti si trova al di sopra del grafico.
+
+\section{Funzione logaritmica}
+
+
+Il logaritmo che ha come base il numero di nepero($e \sim 2.7$) prende il nome di logaritmo naturale.
+
+
+\begin{equation*}
+    \log_e x = \ln x
+\end{equation*}
+
+\begin{equation*}
+    (\ln x)^{-1} = e^x
+\end{equation*}
+
+Logaritmo e esponenziale sono inverse.
+
+\textbf{Osservazione}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{imgs/log.png}
+    \caption{Logaritmo: differenze tra base maggiore di 1 e compresa tra 0 e 1}
+    \label{fig:log}
+\end{figure}
+
+\begin{itemize}
+    \item Linea rossa ha base maggiore di 1
+    \item Linea blue ha base compresa tra 0 e 1
+\end{itemize}
+
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.5\linewidth]{imgs/exp.png}
+    \caption{Esponenziale: differenze tra base maggiore di 1 e compresa tra 0 e 1}
+    \label{fig:exp}
+\end{figure}
+
+\begin{itemize}
+    \item Linea rossa ha base maggiore di 1
+    \item Linea blue ha base compresa tra 0 e 1
+\end{itemize}
+
+\subsection{Funzioni trigonometriche}
+Seno e coseno hanno dominio $D=[-1, 1]$, seno e dispari e coeno è pari.
+
+\begin{equation*}
+    \tan x = \frac{\sin x}{\cos x}
+\end{equation*}
+
+Il dominio è:
+\begin{equation*}
+    D(tan) = R \backslash \{ \frac{\pi}{2} + k\pi\}
+\end{equation*}
+
+\begin{equation*}
+    \cot x = \frac{\cos x}{\sin x}
+\end{equation*}
+
+Il dominio è:
+\begin{equation*}
+    D(cot) = R \backslash \{ \pi + k\pi\}
+\end{equation*}
+
+Tan e cot sono dispari!!
+
+\section{Estremo superiore/inferiore, minimo e massimo}
+
+\subsection{Estremo superiore}
+L'estremo superiore di un insieme $E \subseteq R$:
+
+\textbf{Definizione}:
+
+
+$E \subseteq X$ si dice limitato superiormente se $\exists M \in X \Leftrightarrow x\leq M, \forall x \in E$
+
+\subsection{Estremo inferiore}
+L'estremo inferiore di un insieme $E \subseteq R$:
+
+\textbf{Definizione}:
+
+
+$E \subseteq X$ si dice limitato inferiormente se $\exists m \in X \Leftrightarrow x\geq m, \forall x \in E$
+
+
+Un'insieme si dice limitato quando è limitato superiormente e inferiormente.
+
+
+\subsection{MAX}
+\textbf{Definizione}:
+
+Sia $E \subseteq X$, allora $X_M$ è il massimo per $E$ se:
+\begin{equation*}
+    \begin{cases}
+        X_M \in E \\
+        X_M \geq x, \forall x \in E
+    \end{cases}
+\end{equation*}
+
+\subsection{MIN}
+\textbf{Definizione}:
+
+Sia $E \subseteq X$, allora $X_M$ è il minimo per $E$ se:
+\begin{equation*}
+    \begin{cases}
+        X_m \in E \\
+        X_m \leq x, \forall x \in E
+    \end{cases}
+\end{equation*}
+
+\textbf{Osservazione}: se esiste un massimo l'insieme è limitato superiormente ecc.
+
+\subsection{Maggiorante e minorante}
+
+\textbf{Definizione}:
+Sia $E \subseteq X$:
+
+Un numero $k \in X$ si dice \textbf{maggiorante} se $k \geq x, \forall x \in E$.
+$k$ non deve per forza far parte di $E$.
+
+
+
+Un numero $k \in X$ si dice \textbf{minorante} se $k \leq x, \forall x \in E$.
+$k$ non deve per forza far parte di $E$.
+
+
+
+\textbf{Definizione}:
+
+Chiameremo \textbf{Estremo inferiore} di $E$ $\inf(E)$(\textbf{il massimo dei minoranti}).
+
+
+Chiameremo \textbf{Estremo superiore} di $E$ $\sup(E)$(\textbf{il minimo dei maggioranti}).
+
+
+\section{Funzioni limite}
+
+$f: D \subseteq R \rightarrow R$
+
+\textbf{Definizione}:
+$f$ si dice \textbf{limitata superiormente} se:
+\begin{equation*}
+    \exists M \in \Re \quad \Leftrightarrow \quad f(x) \leq M, \quad \forall x \in D
+\end{equation*}
+
+\textbf{Definizione}:
+$f$ si dice \textbf{limitata inferiormente} se:
+\begin{equation*}
+    \exists m \in \Re \quad \Leftrightarrow \quad f(x) \geq m, \quad \forall x \in D
+\end{equation*}
+
+\textbf{Definizione}:
+$f$ si dice \textbf{limitata} se lo è sia superiormente che inferiormente.
+
+\section{Intorni e punti di accumulazione}
+
+\textbf{Definizione}:
+Un Intorno di $x_0 \in \Re$ è un'insieme della retta $\Re$ che contiene un'intervallo aperto del tipo:
+\begin{equation*}
+    I_\epsilon (x_0) = ] x_0 - \epsilon, \quad x_0 + \epsilon [
+\end{equation*}
+
+Con $\epsilon > 0$
+
+\textbf{Definizione}:
+Un'intorno di $+\infty$ è un'insieme $J \subseteq \Re$ che contiene intervalli aperti
+del tipo $[M, \quad +\infty[$ con $M \in \Re$.
+
+\textbf{Definizione}:
+Sia $A \subseteq \Re$, e sia $X_0 \in \Re$, si dice che $x_0$ è \textbf{punto di accumulazione}
+per $A$ se in ogni intorno di $J$ di $x_0$ esiste un punto $x$ diverso da $x_0$
+che appartiene ad $A$.
+
+\begin{equation*}
+    \forall J \text{ di } x_0 \quad \exists x \neq x_0 \quad \Leftrightarrow x \in J \cap A
+\end{equation*}
+
+Sostanzialmente un punto di accumulazione(o p.d.a.) presenta dei punti attorno a se perchè si trova in un intervallo e non è un signolo punto.
+
+\section{Limiti di funzioni}
+\subsection{Teorema 1}
+\textbf{Sono continue nel proprio dominio}:
+\begin{enumerate}
+    \item potenze
+    \item funzioni trigonometriche
+    \item logaritmo
+\end{enumerate}
+\subsection{Teorema 2}
+Siano $f,g : I \rightarrow \Re, \quad X_0 \in I$
+
+Supponendo che $f$ e $g$ siano continue in $x_0$, allora:
+\begin{enumerate}
+    \item $f \pm g$ è continua in $x_0$
+    \item $f \cdot g$ è continua in $x_0$
+    \item $\frac{f}{g}$ è continua in $x_0$, non in $g(x) =0$
+\end{enumerate}
+
+\subsection{Teorema colcolo dei limiti}
+
+Siano:
+
+\begin{equation*}
+    \lim_{x \rightarrow x_0} f(x) = L \in \Re
+\end{equation*}
+
+\begin{equation*}
+    \lim_{x \rightarrow x_0} g(x) = +\infty
+\end{equation*}
+
+allora:
+
+\begin{enumerate}
+    \item la somma risulta in più infinito
+    \item la moltiplicazione dipende dal segno del limite finito
+    \item la sottrazione f - g risulta in meno infinito 
+\end{enumerate}
+
+\section{Forme indeterminate}
+\subsection{$[\frac{0}{0}]$}
+\textbf{Esempio}:
+\begin{equation*}
+    \lim_{x \rightarrow 0} \frac{x^2}{x^3 + x}
+\end{equation*} 
+
+\begin{equation*}
+    \lim_{x \rightarrow 0} \frac{x^2}{x^2(x + \frac{1}{x})}
+\end{equation*}
+
+Semplifico il $x^2$:
+
+\begin{equation*}
+    \lim_{x \rightarrow 0} \frac{1}{x \pm\infty}
+\end{equation*}
+
+\begin{equation*}
+    \frac{0}{1} = 0
+\end{equation*}
+
+
+Quindi regola generale per $[\frac{0}{0}]$, devo cercare di portare fuori la variabili che mi causano la forma indefinita
+e semplificarle.
+
+\subsection{$[\frac{\infty}{\infty}]$}
+
+\textbf{Esempio}:
+\begin{equation*}
+    \lim_{x \rightarrow + \infty} \frac{x^3 + 2x}{3x^2 - x^2 -1}
+\end{equation*}
+
+\begin{equation*}
+    \lim_{x \rightarrow + \infty} \frac{x^2(x + \frac{2}{x})}
+    {x^2(3 - 1 -\frac{1}{x^2})}
+\end{equation*}
+
+Semplifico il $x^2$:
+
+\begin{equation*}
+    \lim_{x \rightarrow + \infty} \frac{x + \frac{2}{x}}
+    {(3 - 1 -\frac{1}{x^2})}
+\end{equation*}
+
+\begin{equation*}
+    \lim_{x \rightarrow + \infty} \frac{+\infty + 0}
+    {2 - 0} = +\infty
+\end{equation*}
+
+\section{Teoremi}
+\subsection{Teorema della permanenza del segno}
+
+Sia $f: I \subseteq \Re \rightarrow \Re$ continua e sia $x_0$ \textbf{p.d.a.} per I se:
+\begin{equation*}
+    \lim_{x \rightarrow x_0} f(x) = L > 0
+\end{equation*}
+
+Allora $f(x)$ sarà maggiore di 0(positivo)
+
+\subsection{Teorema del confronto}
+Siano $f, d, g : D \subseteq \Re$ continue in $D$ e sia $x_0$ \textbf{p.d.a.} per $D$.
+
+Supponiamo:
+\begin{enumerate}
+    \item $\exists \lim_{x \rightarrow x_0} d(x) = \lim_{x \rightarrow x_0} g(x) = L$
+    \item $\exists I(x_0) : \quad d(x) \leq f(x) \leq g(x), \quad \forall x \in I(x_0) \backslash \{x_0\},\quad \forall x \in D$
+\end{enumerate}
+
+Esempio:
+\begin{equation*}
+    \lim_{x \rightarrow + \infty} \frac{2+\cos x}{x}
+\end{equation*}
+\begin{equation*}
+    -1 \leq \cos x \leq +1
+\end{equation*}
+
+\begin{equation*}
+    2-1 \leq 2 + \cos x \leq 2+1
+\end{equation*}
+
+\begin{equation*}
+    \frac{2-1}{x} \leq \frac{2 + \cos x}{x} \leq \frac{2+1}{x}
+\end{equation*}
+
+Cosi facendo capisco che il limite risulta 0.
+
+\section{Altre forme indeterminate}
+\subsection{$1^{+\infty}$}
+
+Esempio:
+\begin{equation*}
+    \lim_{x \rightarrow + \infty} \Big(1 + \frac{1}{x}\Big)^x
+\end{equation*}
+
+In realtà questo è un limite noteveole che diventa:
+\begin{equation*}
+    \lim_{x \rightarrow + \infty} e^x = +\infty
+\end{equation*}
+
+\subsection{$0^{0}$}
+
+\begin{equation*}
+    \lim_{x \rightarrow 0^+} x^{x^2}
+\end{equation*}
+
+Consiglio:
+\begin{equation*}
+    e^{\ln \alpha } = \alpha
+\end{equation*}
+
+\begin{equation*}
+    \exp (\lim_{x \rightarrow 0^+} x^{x^2}) = \exp (\lim_{x \rightarrow 0^+} x^2 \ln (x)) 
+\end{equation*}
+
+che così diventa la F.I. $[0 \cdot -\infty]$.
+
+\subsection{F.I. $[\infty^0]$}
+
+\begin{equation*}
+    \lim_{z \rightarrow +\infty} (e^x)^{\frac{1}{3^x}} = \lim_{z \rightarrow +\infty} (e)^{\frac{x}{3^x}}
+\end{equation*}
+
+guardo con che velocità tendono a infinito il numeratore e il denominatore.
+
+Cosi scopro che il demnominatore è più veloce e il risultato del limite è 1.
+
+
+\section{Definizione di derivate}
+Rapporto incrementale:
+\begin{equation*}
+    \frac{f(x_0 + h) - f(x_0)}{h}
+\end{equation*}
+
+Praticamente il rapporto incrementale mi da la pendenza media.
+
+Per avere il signolo valore faccio il limite di h che tende a 0.
+
+\textbf{Definizione}:
+
+
+Sia $f:(a,b) \rightarrow \Re, \quad x_0 \in (a,b)$.
+
+Se $\exists \lim_{h \rightarrow 0} \frac{f(x_0 + h) - f(x_0)}{h} \in \Re$ allora $f$ è derivabile in $x_0$.
+
+\section{Teorema della derivazioe composta}
+Avendo due funzioni derivabili in $x_0$:
+
+\begin{equation*}
+    (g \quad o \quad f)'(x) = g'(f(x))\cdot f'(x)
+\end{equation*}
+
+Esempio:
+\begin{equation*}
+    f(x) = \sin(x^2)
+\end{equation*}
+
+Sapendo che la derivata del seno è il coseno:
+\begin{equation*}
+    \cos(x^2)\cdot 2x
+\end{equation*}
+
+\subsection{RICORDA}
+\begin{equation*}
+    (\frac{g}{h})' = \frac{g'h - h'g}{h^2}
+\end{equation*}
+
+\section{Derivata destra e sinistra, punti angolosi, cuspidi}
+
+\begin{quote}
+    \textbf{Definizione}:
+
+
+Sia:
+\begin{equation*}
+    f:(a,b) \rightarrow \Re, \quad x_0 \in (a,b)
+\end{equation*}
+
+Se 
+\begin{equation*}
+    \exists \lim_{h \rightarrow 0^+} \frac{f(x_0 + h) - f(x_0)}{h} \in \Re
+\end{equation*}
+allora $f$ è derivabile in $x_0$.
+
+
+Si dice che $f$ è derivabile a destra, stessa solfa per la derivabilità a sinistra.
+
+\end{quote}
+
+\begin{quote}
+    \textbf{Definizione}:
+
+    Se la derivata sinistra e quella destra del punto sono diverse, siamo in presenza di un punto angoloso.
+        
+\end{quote}
+
+\begin{quote}
     
+
+    \textbf{Definizione}:
+
+    Se il limite tende a più o meno infinito, allora si parla di flesso a tangente verticale nel punto preso in considerazione per il limite.
+
+\end{quote}
+
+\begin{quote}
+    \textbf{Definizione}:
+
+    Se il limite destro e sinistro di un punto tendo a infinito ma con segno opposto fra di loro,
+    il punto in questione è un punto di \textbf{cuspide} per $f$.
+\end{quote}
+
+\section{Teorema degli zeri}
+\begin{quote}
+    \textbf{Definizione}:
+
+    Sia:
+    \begin{enumerate}
+        \item Se $f$ è continua in $[a, b]$
+        \item $f(a) > 0$ e $f(b) < 0$ o viceversa  
+    \end{enumerate}
+
+    Siamo sicuri che incontreremo l'asse delle x(cioè uno o più zeri)
+\end{quote}
+
+In pratica si divide lo spazio tra a e b in 2, cosi ottenedo $[a, c]$ e 
+$[c, b]$, si fanno questi divisioni di spazio finchè non si trova lo zero.
+
+
+\begin{equation*}
+    \begin{cases}
+        f(c_!) > 0 \rightarrow \text{ focus su } [a,c_1] \\
+        f(c_!) = 0 \rightarrow \text{ finito}\\
+        f(c_!) < 0 \rightarrow \text{ focus su } [c_1, b] \\
+    \end{cases}
+\end{equation*}
+
+Continuo ad iterare finchè non ottengo lo 0.
+
+\section{Terorema di weierstrass e teorema dei valori intermedi}
+
+\textbf{Teorema}:
+\begin{quote}
+    Sia $f : I \rightarrow \Re$ con $I = [a, b]$ chiuso e limitato (funzione continua),
+    allora esistono massimo e minimo in $[a, b]$. 
+\end{quote}
+
+
+\subsection{Teorema dei valori intermedi}
+
+\begin{quote}
+    Sia $f: [a, b] \rightarrow \Re$ continua,
+    $\forall \lambda$ compresa tra $m = \min f[a, b]$ e $M = \max f[a, b]$
+    $\exists$ uno zero tra $[a, b]$ tale che:
+
+    $\lambda f(x_0)$
+\end{quote}
+    
+\section{Massimi, minimi e teorema di Fermat}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \end{document}
