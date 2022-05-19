@@ -380,9 +380,227 @@ allora:
     \item la sottrazione f - g risulta in meno infinito 
 \end{enumerate}
 
-\section{Forme indefinite $[\frac{0}{0}]$}
+\section{Forme indeterminate}
+\subsection{$[\frac{0}{0}]$}
+\textbf{Esempio}:
+\begin{equation*}
+    \lim_{x \rightarrow 0} \frac{x^2}{x^3 + x}
+\end{equation*} 
+
+\begin{equation*}
+    \lim_{x \rightarrow 0} \frac{x^2}{x^2(x + \frac{1}{x})}
+\end{equation*}
+
+Semplifico il $x^2$:
+
+\begin{equation*}
+    \lim_{x \rightarrow 0} \frac{1}{x \pm\infty}
+\end{equation*}
+
+\begin{equation*}
+    \frac{0}{1} = 0
+\end{equation*}
+
+
+Quindi regola generale per $[\frac{0}{0}]$, devo cercare di portare fuori la variabili che mi causano la forma indefinita
+e semplificarle.
+
+\subsection{$[\frac{\infty}{\infty}]$}
 
 \textbf{Esempio}:
-\begin{equation}
-    \lim_{x \rightarrow 0} \frac{x}{x^2 + 1}
-\end{equation} 
+\begin{equation*}
+    \lim_{x \rightarrow + \infty} \frac{x^3 + 2x}{3x^2 - x^2 -1}
+\end{equation*}
+
+\begin{equation*}
+    \lim_{x \rightarrow + \infty} \frac{x^2(x + \frac{2}{x})}
+    {x^2(3 - 1 -\frac{1}{x^2})}
+\end{equation*}
+
+Semplifico il $x^2$:
+
+\begin{equation*}
+    \lim_{x \rightarrow + \infty} \frac{x + \frac{2}{x}}
+    {(3 - 1 -\frac{1}{x^2})}
+\end{equation*}
+
+\begin{equation*}
+    \lim_{x \rightarrow + \infty} \frac{+\infty + 0}
+    {2 - 0} = +\infty
+\end{equation*}
+
+\section{Teoremi}
+\subsection{Teorema della permanenza del segno}
+
+Sia $f: I \subseteq \Re \rightarrow \Re$ continua e sia $x_0$ \textbf{p.d.a.} per I se:
+\begin{equation*}
+    \lim_{x \rightarrow x_0} f(x) = L > 0
+\end{equation*}
+
+Allora $f(x)$ sarà maggiore di 0(positivo)
+
+\subsection{Teorema del confronto}
+Siano $f, d, g : D \subseteq \Re$ continue in $D$ e sia $x_0$ \textbf{p.d.a.} per $D$.
+
+Supponiamo:
+\begin{enumerate}
+    \item $\exists \lim_{x \rightarrow x_0} d(x) = \lim_{x \rightarrow x_0} g(x) = L$
+    \item $\exists I(x_0) : \quad d(x) \leq f(x) \leq g(x), \quad \forall x \in I(x_0) \backslash \{x_0\},\quad \forall x \in D$
+\end{enumerate}
+
+Esempio:
+\begin{equation*}
+    \lim_{x \rightarrow + \infty} \frac{2+\cos x}{x}
+\end{equation*}
+\begin{equation*}
+    -1 \leq \cos x \leq +1
+\end{equation*}
+
+\begin{equation*}
+    2-1 \leq 2 + \cos x \leq 2+1
+\end{equation*}
+
+\begin{equation*}
+    \frac{2-1}{x} \leq \frac{2 + \cos x}{x} \leq \frac{2+1}{x}
+\end{equation*}
+
+Cosi facendo capisco che il limite risulta 0.
+
+\section{Altre forme indeterminate}
+\subsection{$1^{+\infty}$}
+
+Esempio:
+\begin{equation*}
+    \lim_{x \rightarrow + \infty} \Big(1 + \frac{1}{x}\Big)^x
+\end{equation*}
+
+In realtà questo è un limite noteveole che diventa:
+\begin{equation*}
+    \lim_{x \rightarrow + \infty} e^x = +\infty
+\end{equation*}
+
+\subsection{$0^{0}$}
+
+\begin{equation*}
+    \lim_{x \rightarrow 0^+} x^{x^2}
+\end{equation*}
+
+Consiglio:
+\begin{equation*}
+    e^{\ln \alpha } = \alpha
+\end{equation*}
+
+\begin{equation*}
+    \exp (\lim_{x \rightarrow 0^+} x^{x^2}) = \exp (\lim_{x \rightarrow 0^+} x^2 \ln (x)) 
+\end{equation*}
+
+che così diventa la F.I. $[0 \cdot -\infty]$.
+
+\subsection{F.I. $[\infty^0]$}
+
+\begin{equation*}
+    \lim_{z \rightarrow +\infty} (e^x)^{\frac{1}{3^x}} = \lim_{z \rightarrow +\infty} (e)^{\frac{x}{3^x}}
+\end{equation*}
+
+guardo con che velocità tendono a infinito il numeratore e il denominatore.
+
+Cosi scopro che il demnominatore è più veloce e il risultato del limite è 1.
+
+
+\section{Definizione di derivate}
+Rapporto incrementale:
+\begin{equation*}
+    \frac{f(x_0 + h) - f(x_0)}{h}
+\end{equation*}
+
+Praticamente il rapporto incrementale mi da la pendenza media.
+
+Per avere il signolo valore faccio il limite di h che tende a 0.
+
+\textbf{Definizione}:
+
+
+Sia $f:(a,b) \rightarrow \Re, \quad x_0 \in (a,b)$.
+
+Se $\exists \lim_{h \rightarrow 0} \frac{f(x_0 + h) - f(x_0)}{h} \in \Re$ allora $f$ è derivabile in $x_0$.
+
+\section{Teorema della derivazioe composta}
+Avendo due funzioni derivabili in $x_0$:
+
+\begin{equation*}
+    (g \quad o \quad f)'(x) = g'(f(x))\cdot f'(x)
+\end{equation*}
+
+Esempio:
+\begin{equation*}
+    f(x) = \sin(x^2)
+\end{equation*}
+
+Sapendo che la derivata del seno è il coseno:
+\begin{equation*}
+    \cos(x^2)\cdot 2x
+\end{equation*}
+
+\subsection{RICORDA}
+\begin{equation*}
+    (\frac{g}{h})' = \frac{g'h - h'g}{h^2}
+\end{equation*}
+
+\section{Derivata destra e sinistra, punti angolosi, cuspidi}
+
+\begin{quote}
+    \textbf{Definizione}:
+
+
+Sia:
+\begin{equation*}
+    f:(a,b) \rightarrow \Re, \quad x_0 \in (a,b)
+\end{equation*}
+
+Se 
+\begin{equation*}
+    \exists \lim_{h \rightarrow 0^+} \frac{f(x_0 + h) - f(x_0)}{h} \in \Re
+\end{equation*}
+allora $f$ è derivabile in $x_0$.
+
+
+Si dice che $f$ è derivabile a destra, stessa solfa per la derivabilità a sinistra.
+
+\end{quote}
+
+\begin{quote}
+    \textbf{Definizione}:
+
+    Se la derivata sinistra e quella destra del punto sono diverse, siamo in presenza di un punto angoloso.
+        
+\end{quote}
+
+\begin{quote}
+    
+
+    \textbf{Definizione}:
+
+    Se il limite tende a più o meno infinito, allora si parla di flesso a tangente verticale nel punto preso in considerazione per il limite.
+
+\end{quote}
+
+\begin{quote}
+    \textbf{Definizione}:
+
+    Se il limite destro e sinistro di un punto tendo a infinito ma con segno opposto fra di loro,
+    il punto in questione è un punto di \textbf{cuspide} per $f$.
+\end{quote}
+
+\section{Teorema degli zeri}
+\begin{quote}
+    \textbf{Definizione}:
+
+    Sia:
+    \begin{enumerate}
+        \item Se $f$ è continua in $[a, b]$
+        \item $f(a) > 0$ e $f(b) < 0$ o viceversa  
+    \end{enumerate}
+
+    Siamo sicuri che incontreremo l'asse delle x(cioè uno o più zeri)
+\end{quote}
+
