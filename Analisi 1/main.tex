@@ -681,21 +681,243 @@ Continuo ad iterare finchè non ottengo lo 0.
 \section{Massimi, minimi e teorema di Fermat}
 
 
+\textbf{Definizione}:
+\begin{quote}
+    Si dice che M è un massimo di f in $[a, b]$ e che $x_M \in [a, b]$ è punto di
+    massimo se:
+    \begin{equation*}
+        f(x_M) \geq f(x) \quad \forall x \in [a, b]
+    \end{equation*}
+
+    Analogamente si definisce il minimo.
+\end{quote}
+
+
+\textbf{Definizione}:
+\begin{quote}
+    Si dice che $M_1$ è massimo locale(relativo) per $f$ e che $x_1$ è punto di massimo relativo se:
+    \begin{equation*}
+       \exists \text{ un'intervallo } I_{\delta}(x_1) \triangleq (x_1 - \delta, x_1 + \delta), \quad \delta > 0 \quad \text{ tale che }
+    \end{equation*}
+    \begin{equation*}
+        f(x_1) \geq f(x) \quad \forall x \in I_{\delta} (x_1) \cap [a, b]
+    \end{equation*}
+  
+\end{quote}
+
+
+
+    \subsection{Teorema di Fermat}
+    \textbf{Definizione:}
+    Sia $f:[a, b] \rightarrow \Re$, derivabile $\forall x \in (a, b)$ allora:
+
+    Se $x_0$ è punto di massimo o minomo locale allora:
+
+    \begin{equation*}
+        f'(x_0) = 0
+    \end{equation*}
+
+
+
+    \subsection{Ricerca massimi e minimi}
+
+    Sia $f: [a, b] \rightarrow \Re$:
+
+    \begin{enumerate}
+        \item calcolo $f(a) \in \Re$ e $f(b) \in \Re$
+        \item Studio eventuali punti dove $f$ \textbf{non è derivabile}
+        \item calcolo $f'$ e per il teorema di Fermat, se $f'=0$ è un punto critico(max, min o altro)
+        \item se $\nexists \bar{x} \Leftrightarrow f'(\bar{x}) = 0$, allora $f(a)$ e $f(b)$ sono max o min(dipende da chi è più grosso)
+        \item trovati i punti critici, devo studiare il segno di $f'$ intorno a questi punti(cosi vedo chi è max e min)
+        \item calcolo gli $f$ per tutti i MAX/MIN per trovare i MAX/MIN globali 
+    \end{enumerate}
+
+
+    \section{Regola di de l'Hospital}
+
+    \textbf{Definizione}:
+    Se sto calcolando un limite e il risultato è $[\frac{0}{0}]$ oppure $[\frac{\infty}{\infty}]$, posso sfruttare 
+    de l'Hospital, che afferma che :
+    \begin{equation*}
+        \lim_{x \rightarrow x_0} f(x) = \lim_{x \rightarrow x_0} g(x) = 0 \quad [x_0 \in \Re \cup \{\pm \infty\}] 
+    \end{equation*}
+
+    $g'(x) \neq 0$ vicino all'intorno di $I$ di $x_0$, allora:
+
+    Se:
+    \begin{equation*}
+        \exists \lim_{x \rightarrow x_0} \frac{f'(x)}{g'(x)}  = L \in \Re \cup \{\pm \infty\}
+    \end{equation*}
+
+    Allora:
+    \begin{equation*}
+        \exists  \lim_{x \rightarrow x_0} \frac{f(x)}{g(x)}  = L 
+    \end{equation*}
+
+    e i due limiti così ottenuti sono uguali!!!!
+
+    \section{Teorema(sviluppo) di Taylor}
+
+    Il polinomio di Taylor mi sembra di aver capito che sia una funzione derivabile $n$ volte, 
+    per una funxione $f$ in $x_0$ di ordine $n$, la formula è la seguente:
+    \begin{equation*}
+        T_{x_0}^n f = p(x) = \sum_{k=0}^n \frac{f(x_0)}{k!}(x-x_0)^k
+    \end{equation*}
+
+    Dove $k$ rappresenta l'ordine del polinomio.
+
+
+    \section{Derivate seconde e concavità}
+
+    Con la derivata prima trovo la crescenza(positiva) o decrescenaza(negativa), con la derivata seconda capisco la convessità(positivo parabola felice) o concavità(begativa parabola triste).
+
+    \section{Studio del grafico}
+    
+
+    \begin{enumerate}
+        \item Dominio
+        \item Simmetrie
+        \item Studio degli estremi
+        \item Segno della funzione
+        \item Studio del segno delle derivate(monotonia)
+        \item Massimi e minimi
+        \item Studio derivata seconda
+        \item Se ci sono punti non derivabili, farli a parte
+    \end{enumerate}
+
+    \subsection{Dominio}
+    Semplicemente trovo il dominio della funzione.
+
+    \subsection{Simmetrie}
+    Controllo se periodica, pari o dispari
+
+    \subsection{Studio agli estremi del dominio della funzione}
+    Faccio i limiti e vedo il loro comportamento.
+
+    \subsection{Segno della funzione}
+    Faccio il calcolo di dove la funzione è maggiore uguale a 0.
+
+    \subsection{Studio segno della derivata(monotonia)}
+    Faccio la derivata prima e poi faccio lo studio del segno
+
+    \subsection{Trovo i massimi e i minimi}
+    Al punto precedente dovrei aver trovato dei punti critici, quindi posso procedere a trovare i punti di massimo e minimo se presenti.
+
+    \subsection{Studio la derivata seconda}
+    Per vedere concavità e convessità.
+
+    \subsection{Punti non derivabili}
+    Ora studio i punti non derivabili per capire il comportamento della funzione in prossimità di questi punti.
+
+
+    \section{Integrale}
+    L'integrale è l'area sottesa a un tratto di funzione$[a, b]$.
+    
+    Se la funzione non è continua nell'intervallo, non è detto che esista l'integrale.
+
+    \subsection{Proprietà}
+
+    \setcounter{equation}{0}
+    \begin{equation}
+        \int_a^b (f(x) + g(x))dx = \int_a^b f(x)dx + \int_a^b g(x)dx
+    \end{equation}
+
+
+    
+
+    Se $a = b$
+    \begin{equation}
+        \int_a^b f(x)dx = 0
+    \end{equation}
+
+
+
+    Se $b < a$
+    \begin{equation}
+        \int_a^b f(x)dx = - \int_b^a f(x)dx =
+    \end{equation}
+    Cosi da avere un risultato positivo(visto che praticamente sono aree).
+
+
+
+    \begin{equation}
+        \int_a^b f(x)dx + \int_b^c f(x)dx = \int_a^c f(x)dx =
+    \end{equation}
+
+
+    \begin{equation}
+        \int_a^b \lambda f(x)dx = \lambda \int_a^b f(x)dx \quad \forall \lambda \in \Re
+    \end{equation}
 
 
 
 
+    Se 
+    \begin{equation*}
+        f(x) \leq g(x) \quad \forall x \in [a, b]
+    \end{equation*}
+    allora:
+    \begin{equation}
+        \int_a^b f(x) \leq \int_a^b g(x)
+    \end{equation}
+
+
+    \subsection{Teoremi fondamentali del calcolo itengrale}
+    \setcounter{equation}{0}
+
+    Primo teorema:
+    \begin{equation}
+        \frac{d}{dx}(\int_a^x f(t)dt) = f(x)
+    \end{equation}
+    Secondo teorema:
+    \begin{equation}
+        \int_a^b f(x)dx = F(b) - F(a)
+    \end{equation}
+
+
+    \section{Integrazione per parti}
+    \setcounter{equation}{0}
+
+    Avendo due funzioni($f, g$) che sono continue(con le loro derivate):
+
+    Teorema:
+    \begin{equation}
+        \int_a^b f(x)g'(x)dx = f(x)g(x)\Bigg]_{x=a}^{x=b}- \int_a^b f'(x)g(x)dx
+    \end{equation}
+
+    \subsection{Integrazione per sostituzione}
+    \setcounter{equation}{0}
+
+    \begin{equation}
+        \int_a^b f(x)dx = \int_{g^{-1}(a)}^{g^{-1}(a)}f(g(y)) \cdot g'(y)dy
+    \end{equation}
 
 
 
 
+    \section{Integrazione di funzioni razionali(DA FARE)}
+
+    \section{Equazioni differenziali}
+    L'ordine del'equazione differenziale dipende dal'ordine delle singole derivate presenti, 
+    Se la derivata di ordine maggiore è 2($f''(x)$) allora l'ordine dell'equazione differenziale è 2.
+
+    Nel corso vengono trattate solo equazioni differenziali del primo e secondo ordine.
+
+    \subsection{Equazione differenziale omogenea}
+    \setcounter{equation}{0}
+    \begin{equation}
+        Z(x, y''(x), y(x)) = 0
+    \end{equation}
+
+    Quando lo zero è separato dal resto si dice omogenea.
+
+    Ci sarebbe altra roba ma queste si fanno guardando il foglio che lascia usare il prof.
 
 
+    \section{Equazioni differenziali del $1^\circ$ ordine non omogenee}
+    \begin{equation*}
+        y'(x) = a(x) y(x) + b(x)
+    \end{equation*}
 
-
-
-
-
-
-
+    
 \end{document}
