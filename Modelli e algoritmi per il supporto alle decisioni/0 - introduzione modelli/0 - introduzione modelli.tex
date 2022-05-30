@@ -1,0 +1,109 @@
+\section{Introduzione ai modelli}
+Considerando un sistema reale(esistente o in fase di progetto),
+non è possibili agire direttamente su di esso perchè troppo costoso(tempo e danaro).
+
+Di solito si sfruttano rappresentazioni e modelli del sistema.
+
+\subsection{Componenti dei modelli}
+\begin{itemize}
+    \item dati
+    \item variabili decisionali
+    \item vincoli
+    \item obiettivo
+\end{itemize}
+
+\subsubsection{Dati}
+Tutte le grandezze di un sistema reale \textbf{che non sono in nostro diretto controllo}.
+
+\textbf{Esempio della casa}:
+Il terrono sul quale la casa deve essere edificata
+
+\subsubsection{Variabili decisionali}
+Tutte le granddezze del sistema reale su cui abbiamo un controllo diretto.
+
+A diverse configurazioni di variabili decisionali corrispondono diversi output.
+
+\textbf{Esempio della casa}:
+Grandezza delle stanze o colore pareti.
+
+\subsubsection{Vincoli}
+Solitamente bisogna rispettare alcuni vincolo, 
+che inpongono limiti sui valori che possono assumere 
+le variabili.
+
+\textbf{Esempio della casa}:
+Metratura minima della cucina, norme che inpongo certi criteri sulla sicurezza.
+
+\subsubsection{Obiettivo}
+Nel assegnare valori rispettando i vincoli, siamo guidati dall'\textbf{obiettivo}.
+
+Vogliamo i scegliere i valori per arrivare all'obiettivo nella maniera più ottimale possibile.
+
+\textbf{Esempio della casa}:
+Spendere il meno possibilie.
+
+\subsection{Procedura di risoluzione}
+Dopo aver definito il modello, lo si deve risolvere.
+
+La procedura di risoluzione sceglie i valori da assegnare alel variabili rispettando i vincoli e in modo da 
+ottimizare il modello rispetto all'obiettivo.
+
+\subsection{Validazione del modello}
+Una volta ottenuta una configurazione ottimale, si esegue la validazione del modello,
+il modello è una rappresentazione del sistema reale quindi bisogna chiedersi se la rappresentazione è fedele
+oppure se si sono tralasciati alcuni aspetti.
+
+\textbf{Esempio della casa}:
+Ci siamo dimenticati del vincolo che serve almeno una finestra per ogni stanza, ecc.
+
+La valutazione della risoluzione permette di trovare errori e di correggere il tiro.
+
+\subsection{Tipi di modelli}
+Tre macro gruppi:
+\begin{itemize}
+    \item modelli a scala: rappresentazione su scala ridotta
+    \item modelli matematici: sistema tradotto in matematichese
+    \item modelli di simulazione: sistema tradotto in informatichese
+\end{itemize}
+
+\subsubsection{Modelli matematici}
+Vantaggio di poter usare tutti gli strumenti matematici nella risoluzione.
+
+Attraverso questi è possibile algoritmi per la risoluzione.
+
+Lo svantaggio dei modelli matematici è la limitata capacità espressiva.
+
+\subsubsection{Modelli di simulazione}
+Come vantaggi e svantaggi sono complementari ai modelli matematici, 
+le procedure di risoluzione sono meno efficaci nel trovare la soluzione migliore 
+ma hanno una capacità di espressione molto maggiore.
+
+\subsection{Tipi di algoritmi}
+Gli algoritmi trattati in questo corso sono:
+\begin{itemize}
+    \item \textbf{Algoritmi costruttivi}: si costruisce la soluzione ottimale partendo da soluzioni sub incomplete.
+    \item \textbf{Algoritmi di raffinamento locale}: si raffinano algoritmi che possono già essere accettati ma sono sub ottimali.
+    \item \textbf{Algoritmi di enumerazione}: si enumerano le possibili soluzioni per trovare quella migliore.
+\end{itemize}
+
+\subsubsection{Algoritmi costruttivi}
+Per gli algoritmi di costruione c'è una sub classificazione:
+\begin{itemize}
+    \item \textbf{Algoritmi costruttivi senza revisione di decisioni passate}: i pezzi aggiunti non vengono più tolti
+    \item \textbf{Algoritmi costruttivi con revisione di decisioni passate}: i pezzi aggiunti possono essere tolti
+\end{itemize}
+
+\subsubsection{Algoritmi di raffinamento locale}
+
+Qui introcuciamo il concetto di "vicinanza", in genere per soluzione vicina, si intende
+una soluzione che differisce solo in parte da quella attuale.
+
+Di solito si vuole che la soluzione vicina sia migliore della soluzione attuale rispetto all'obiettivo prefissato.
+
+\subsubsection{Algoritmi enumerativi}
+Si dividono in:
+\begin{itemize}
+    \item \textbf{Algoritmi di enumerazione completi}: dove si valuta ogni singola soluzione ammissibile.
+    \item \textbf{Algoritmi di enumerazione implicita}: dove attraverso la risoluzione di sottoproblemi, si enumerano implicitamente interi sottoinsiemi della regione ammissibile.
+\end{itemize}
+
