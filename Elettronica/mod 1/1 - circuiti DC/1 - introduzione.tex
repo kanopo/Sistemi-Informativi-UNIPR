@@ -1,6 +1,141 @@
 \section{Introduzione}
 
-\subsection{Tensione $[V]$}
-\begin{equation*}
+\subsection{Tensione}
 
+L'unità di misura della tensione è il Volt $[V]$.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\linewidth]{1 - circuiti DC/imgs/Screenshot from 2022-06-09 17-14-50.png}
+    \label{fig:tensione}
+    \caption{Verso tensione}
+\end{figure}
+
+\subsection{Corrente}
+L'unità di misura della corrente è il Ampere $[A]$.
+
+\subsection{Legge di Ohm}
+\subsubsection*{Prima legge}
+La \textbf{resistenza} si indica con $R [\Omega]$(ohm) e si calcola:
+\begin{equation*}
+    V = R \cdot I
 \end{equation*}
+
+
+L'\textbf{induttanza} è l'opposto della resistenza e si indica con $G [S]$(Siemens)
+
+\begin{equation*}
+    R = \frac{1}{G}
+\end{equation*}
+\begin{equation*}
+    I = G \cdot V
+\end{equation*}
+
+\subsubsection*{Seconda legge}
+
+La \textbf{resistività} si indica con $\rho [\Omega \cdot m]$(ohm per metro) e si calcola:
+
+
+
+L'\textbf{conducibilità} è l'opposto della resistività e si indica con $\sigma [\frac{S}{m}]$(Siemens fratto metri)
+\begin{equation*}
+    \rho = \frac{1}{\sigma}
+\end{equation*}
+
+\begin{equation*}
+    R = \rho \cdot \frac{l}{S}
+\end{equation*}
+
+\begin{equation*}
+    G = \sigma \cdot \frac{S}{l}
+\end{equation*}
+Dove $l$ è la lunghezza del materiale e $S$ è la sezione.
+
+\subsection{Componenti reattivi}
+\subsubsection{Condensatore}
+
+\begin{equation*}
+    Q = C \cdot V
+\end{equation*}
+
+\begin{equation*}
+    \epsilon_C = \frac{1}{2} C\cdot V^2
+\end{equation*}
+
+
+In circuiti statici il condensatore viene visto come un pezzo di circuito aperto.
+
+Quando siamo in presenza di una corrente variabile($i$) e di una tensione variabile($v$)(\textit{ovviamente}), usiamo queste formuline swag:
+
+\begin{equation*}
+    i = C \cdot \frac{\delta v}{\delta t}
+\end{equation*}
+
+\subsubsection{Induttore}
+
+\begin{equation*}
+    \lambda = L \cdot I
+\end{equation*}
+
+\begin{equation*}
+    \epsilon_L = \frac{1}{2} L\cdot I^2
+\end{equation*}
+
+In circuiti statici il solenoide viene visto come un pezzo di circuito cortocircuitato.
+
+Quando siamo in presenza di una corrente variabile($i$) e di una tensione variabile($v$)(\textit{ovviamente}), usiamo queste formuline swag:
+
+\begin{equation*}
+    i = L \cdot \frac{\delta i}{\delta t}
+\end{equation*}
+
+\subsection{Generatori dipendenti}
+\begin{itemize}
+    \item dipendenti da tensione
+        \begin{itemize}
+            \item Generatore di tensione dipendente da tensione (VCVS)
+                \begin{equation*}
+                    V = aV_x
+                \end{equation*}
+            \item Generatore di corrente dipendente da tensione (VCCS)
+            \begin{equation*}
+                I = bI_x
+            \end{equation*}
+        \end{itemize}
+    \item dipendenti da corrente
+        \begin{itemize}
+            \item Generatore di tensione dipendente da corrente (CCVS)
+                \begin{equation*}
+                    V = rI_x
+                \end{equation*}
+            \item Generatore di corrente dipendente da corrente (CCCS)
+                \begin{equation*}
+                    I = gI_x
+                \end{equation*}
+        \end{itemize}
+\end{itemize}
+
+\subsection{Circuiti}
+
+\begin{quotation}
+    \textbf{Definizione}: Un \textbf{circuito} è un percorso chiuso che contiene componenti elettriche.
+\end{quotation}
+
+\begin{quotation}
+    \textbf{Definizione}: Un \textbf{ramo} è una sequenza di componenti senza deviazioni?!
+\end{quotation}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{1 - circuiti DC/imgs/Screenshot from 2022-06-09 22-43-00.png}
+    \label{fig:rami}
+    \caption{Esempio di ramo}
+\end{figure}
+
+\begin{quotation}
+    \textbf{Definizione}: Un \textbf{nodo} è un punto d'incontro di 3 o più rami.
+\end{quotation}
+
+\begin{quotation}
+    \textbf{Definizione}: Un \textbf{maglia} è percorso chiuso in un circuito
+\end{quotation}

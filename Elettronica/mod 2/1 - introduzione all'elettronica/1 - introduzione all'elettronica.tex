@@ -1,0 +1,45 @@
+\section{Introduzione all'elettronica}
+\subsection{Trasduttori}
+I trasduttori sono dispositivi che mettono in contatto la realtà e l'elettonica.
+
+ne esistono di due famiglie:
+\begin{itemize}
+    \item sensori
+    \item trasduttori
+\end{itemize}
+
+I sensori trasformano grandezze fisiche in elettriche, mentre i trasduttori utilizzano le grandezze elettriche per trasformarle in grandezzze fisiche.
+
+\subsection{Digitale vs analogico}
+\begin{itemize}
+    \item grande potenza di calcolo ed eleaborazione del segnale
+    \item maggior robustezza ai disturbi
+    \item minor sensibilità alla temperatura
+\end{itemize}
+
+\subsection{Analogico vs digitale}
+\begin{itemize}
+    \item in natura le grandezze fisiche sono descrivibili come segnali analogici
+    \item sensori e attuatori
+    \item per la conversione da analogico a digitale e viceversa, si usano circuiti DAC e ADC
+\end{itemize}
+
+\subsection{ADC(Convertitore analogico digitale)}
+\begin{itemize}
+    \item viene fissata la tensione di fondo scala ($V_{fs}$)
+    \item la tensione d'ingresso analogica viene convertita nel valore più vicino numero a n-bit
+    \item maggiore è il numero di bit usati per la conversione e maggiore è la precisione del ADC(si perdono meno informazioni nella conversione)(minor errore di quantizzazione).
+\end{itemize}
+
+
+\subsection{DAC(convertitore digitale analogico)}
+la tensione in uscita è:
+\begin{equation*}
+    V_O = (\sum_n^{+\infty} b_n 2^{-n}) V_{fs}
+\end{equation*}
+\begin{equation*}
+    V_O = (b_12^{-1} + b_22^{-2} + \dots + b_n2^{-n}) V_{fs}
+\end{equation*}
+
+Scritto in due maniere(sero uguali)
+
